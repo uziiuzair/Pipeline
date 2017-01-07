@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600,800');
-
+@import url('font-awesome.min.css');
 * {
 	margin: 0;
 	padding: 0;
@@ -56,11 +56,7 @@ body.login .main {
 	top:50%;
 	left: 50%;
 	margin-left: -200px;
-	margin-top: -200px;
-}
-
-body.login span {
-	color:red
+	margin-top: -253px;
 }
 
 body.login h1 {
@@ -94,42 +90,158 @@ body.login .loginForm {
 		margin: 40px auto;
 	}
 
+.inputContainer {
+	position:relative; 
+	padding:0; 
+	margin:0;
+}
+
+.inputContainer i {
+    position: absolute;
+    left: 0;
+    width: 42px;
+    display: block;
+    text-align: center;
+    font-size: 25px;
+    top: 12px;
+    color: #fff;
+}
+
 body.login input[type=text],body.login input[type=password] {
 	width:100%;
 	padding: 15px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	border: 0;
 	background: transparent;
 	border-bottom: 2px solid rgba(0,0,0,0.1);
 	color: #fff;
 	font-size: 16px;
+	padding-left: 45px;
 }
 
 body.login input[type=submit] {
 	width:100%;
 	cursor:pointer;
+	padding: 15px;
+	font-size: 20px;
+	color: #fff;
+	background: #6782ae;
+	border: 0;
+	letter-spacing: 2px;
+	font-weight: 300;
+}
+
+body.login input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  	color: #fff;
+	font-weight: 300;
+	font-family: 'Raleway', sans-serif;
+}
+body.login input::-moz-placeholder { /* Firefox 19+ */
+  	color: #fff;
+	font-weight: 300;
+	font-family: 'Raleway', sans-serif;
+}
+body.login input:-ms-input-placeholder { /* IE 10+ */
+  	color: #fff;
+	font-weight: 300;
+	font-family: 'Raleway', sans-serif;
+}
+body.login input:-moz-placeholder { /* Firefox 18- */
+  	color: #fff;
+	font-weight: 300;
+	font-family: 'Raleway', sans-serif;
 }
 
 
-/* Profile Page */
-#profile {
+/* Dashboard Page */
+body.dashboard {
+
+}
+
+/*body.dashboard #profile {
 	padding:50px;
 	border:1px dashed grey;
 	font-size:20px;
 	background-color:#DCE6F7
 }
 
-#logout {
+
+body.dashboard #logout {
 	float:right;
 	padding:5px;
 	border:dashed 1px gray
+}*/
+
+body.dashboard .header {
+	width: 100%;
+	position: fixed;
+	background-color: #222; 
 }
 
-a {
-	text-decoration:none;
-	color:#6495ed
-}
+	body.dashboard .header .logo {
+		float: left;
+	}
 
-i {
-	color:#6495ed
-}
+	body.dashboard .header .navigation {
+		float: right;
+	}
+
+		body.dashboard .header .navigation ul {
+			list-style: none;
+			position: relative;
+		}
+
+			body.dashboard .header .navigation ul li {
+				float: left;
+			}
+
+			body.dashboard .header .navigation ul li a {
+				color: #fff;
+				padding: 15px;
+				display: block;
+				text-decoration: none;
+			}
+
+		body.dashboard .header .navigation ul ul {
+			visibility: visible;
+			position: absolute;
+			top: 100%;
+		}
+
+			body.dashboard .header .navigation ul ul li {
+				float: none;
+				background-color: #444;
+				border-bottom: 1px solid #666
+			}
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

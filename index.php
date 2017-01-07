@@ -27,7 +27,7 @@ if(isset($_SESSION['login_user'])){
 		</div>
 		
 		
-		<link href="assets/css/style.css?" rel="stylesheet" type="text/css">
+		<link href="assets/css/style.css?v=0.0.1" rel="stylesheet" type="text/css">
 	
 	</head>
 	<body class="login">
@@ -49,12 +49,17 @@ if(isset($_SESSION['login_user'])){
 					<form action="" method="post">
 						
 
-
-						<input id="name" name="username" placeholder="Username" type="text">
+						<div class="inputContainer">
+							<input id="name" name="username" placeholder="Username" type="text">	
+							<i class="fa fa-user-o"></i>
+						</div>
 						
-						<input id="password" name="password" placeholder="Password" type="password">
+						<div class="inputContainer">
+							<input id="password" name="password" placeholder="Password" type="password">
+							<i class="fa fa-lock"></i>
+						</div>
 						
-						<input name="submit" type="submit" value=" Login ">
+						<input <?php if(!empty($error)) { ?> style="background:#b44343;" <?php } ?> name="submit" type="submit" value="Log in">
 						
 						
 					

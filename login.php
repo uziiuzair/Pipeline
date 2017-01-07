@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
 	
 	if (empty($_POST['username']) || empty($_POST['password'])) {
 	
-		$error = "Username or Password is invalid";
+		$error = '<span style="font-size:20px;">Username and Password cannot be empty</span>';
 	
 	} else {
 
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
 
 		} else {
 		
-			$error = "Username or Password is invalid";
+			$error = '<span style="font-size:20px;">You went wrong somewhere!</span>';
 		
 		}
 
