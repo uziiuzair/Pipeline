@@ -13,7 +13,7 @@ $user_check     =   $_SESSION['login_user'];
 // SQL Query To Fetch Complete Information Of User
 $ses_sql        =   mysqli_query($connection, "select email from users where username='$user_check'");
 $row            =   mysqli_fetch_assoc($ses_sql);
-$user_email  =   $row['email'];
+$user_email     =   $row['email'];
 
 function get_gravatar( $email, $s = 200, $d = 'mm', $r = 'g', $img = false, $atts = array() ) {
     $url = 'https://www.gravatar.com/avatar/';

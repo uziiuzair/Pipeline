@@ -475,6 +475,98 @@ body.accountSettings {
 		}	
 
 
+/* Auth Page */
+body.auth {
+
+}
+
+	body.auth .authInformation {
+		width: 100%;
+		border-bottom: 1px solid #2e3038;
+		list-style: none;
+		padding: 8px 0;
+	}
+
+		body.auth .authInformation:hover {
+			background-color: rgba(0,0,0,0.1);
+		}
+
+			body.auth .authInformation:nth-child(1):hover {
+				background-color: rgba(0,0,0,0);
+			}
+
+		body.auth .authInformation li {
+			float: left;
+			width: 50%;
+			color: #fff;
+		}	
+
+			body.auth .authInformation li span {
+				padding: 10px;
+				display: block;
+			}
+
+			body.auth .authInformation li input {
+				width: 250px;
+				background: rgba(0,0,0,0.1);
+				border: 0;
+				color: #fff;
+				padding: 10px;
+				font-size: 14px;
+				font-weight: 300;
+				font-family: 'Raleway',sans-serif;
+				display: block;
+			}
+
+/* Block Widgets */
+.block.hidden {
+	display: none;
+}
+
+	/* Add Auth Keys */
+	.block_addAuth {
+
+	}
+
+		.block_addAuth ul {
+			list-style: none;
+			margin-top: 20px;
+		}
+
+		.block_addAuth li {
+			float: left;
+			width: 33.33%;
+		}
+
+		.block_addAuth input {
+			width: 250px;
+			background: rgba(0,0,0,0.1);
+			border: 0;
+			color: #fff;
+			padding: 10px;
+			font-size: 14px;
+			font-weight: 300;
+			font-family: 'Raleway',sans-serif;
+			display: block;
+			margin-bottom: 25px;
+		}
+
+		.block_addAuth button {
+			background: rgba(0,0,0,0.1);
+			border: 0;
+			color: #fff;
+			padding: 10px 15px;
+			font-size: 14px;
+			font-weight: 300;
+			display: block;
+			margin-bottom: 25px;
+			cursor: pointer;
+		}
+
+			.block_addAuth button:hover {
+				background-color: #000;
+			}
+
 
 
 

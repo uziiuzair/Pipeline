@@ -7,6 +7,7 @@ include('sessions.php');
 
 // Gravatar
 include 'include/pipes/gravatar.php';
+include 'include/pipes/authRetrieve.php';
 
 // Check is a session exists
 if(!isset($_SESSION['login_user'])){
@@ -14,6 +15,17 @@ if(!isset($_SESSION['login_user'])){
 	header("location: error.php");
 
 }
+
+$authAdded = '';
+if(!empty($_POST['keyname'])) {
+
+	$authName 	= $_POST['keyname'];
+	$authKeyValue = $_POST['keyvalue'];
+		
+	include 'include/pipes/addAuthKey.php';
+} 
+
+$apiKey = generateApi();
 
 ?>
 
@@ -25,13 +37,23 @@ if(!isset($_SESSION['login_user'])){
 	
 		<meta charset="utf-8">
 	
-		<title><?php echo SITE_NAME; ?> | Dashboard</title>
+		<title><?php echo SITE_NAME; ?> | Auth Keys</title>
 		
-		<link href="assets/css/style.css?" rel="stylesheet" type="text/css">
+		<link href="assets/css/style.css?2" rel="stylesheet" type="text/css">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+
+		<script>
+			$(document).ready(function(){
+				$('#addKey').click(function(){
+					$('#addKeyBlock').slideToggle();
+				})
+			});
+		</script>
 
 	</head>
 	
-	<body class="dashboard">
+	<body class="dashboard auth">
 
 		<div class="header clearfix">
 			
@@ -94,21 +116,74 @@ if(!isset($_SESSION['login_user'])){
 		<div class="container">
 
 			<header>
-				<h1>Dashboard</h1> <p><a href="dashboard.php">refresh</a></p>
+				<h1>Auth Keys</h1> <p><a id="addKey" href="#">add key</a></p>
 			</header>
 			
 			<div class="blockContainer">
+
+				<div id="addKeyBlock" class="block hidden block_addAuth">
+					
+					<header>
+						<h2>Add Key</h2>
+					</header>
+
+					<div class="content">
+						
+						<form action="" method="post">
+							
+							<ul class="clearfix">
+							
+								<li><input type="text" name="keyname" placeholder="Name"></li>
+							
+								<li><input type="text" name="keyvalue" value="<?php echo $apiKey; ?>"></li>
+							
+								<li><button>Add Key</button></li>
+							
+							</ul>
+
+						</form>
+
+					</div>
+				
+				</div>
+
+				<?php 
+
+				if ($authAdded == '') {
+					
+				} else {
+					echo '<p style="color:#37a628; margin-bottom:15px;">'. $authAdded .'</p>';
+				} 
+
+				?>
 				
 				<!-- Latest Hooks -->
 				<div class="block">
 
 					<header>
-						<h2>Latest Hooks</h2>
+						<h2>All Auth Keys</h2>
 					</header>
 
 					<div class="content">
 						
+						<ul class="authInformation clearfix">
+							<li>Auth Name</li>	
+							<li>Auth Key</li>	
+						</ul>
 
+						<?php 
+						$arraySize = sizeof($allAuths);
+						$arrayCount = 0;
+						
+						while ($arrayCount < $arraySize) { ?>
+							
+							<ul class="authInformation clearfix">
+								<li><span><?php echo $allAuths[$arrayCount]['authname']; ?></span></li>
+								<li><input type="text" value="<?php echo $allAuths[$arrayCount]['authKey']; ?>"></li>
+							</ul>
+
+							<?php $arrayCount = $arrayCount + 1; ?>
+						<?php } ?>
 
 					</div>
 

@@ -25,7 +25,7 @@ if(!isset($_SESSION['login_user'])){
 	
 		<meta charset="utf-8">
 	
-		<title><?php echo SITE_NAME; ?> | Dashboard</title>
+		<title><?php echo SITE_NAME; ?> | Add Webhooks</title>
 		
 		<link href="assets/css/style.css?" rel="stylesheet" type="text/css">
 
@@ -94,7 +94,7 @@ if(!isset($_SESSION['login_user'])){
 		<div class="container">
 
 			<header>
-				<h1>Dashboard</h1> <p><a href="dashboard.php">refresh</a></p>
+				<h1>Add Hooks</h1> <p><a href="dashboard.php">refresh</a></p>
 			</header>
 			
 			<div class="blockContainer">
