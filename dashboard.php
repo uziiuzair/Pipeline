@@ -5,6 +5,9 @@ require 'include/configs.php';
 // Include Sessions
 include('sessions.php');
 
+// Gravatar
+include 'include/pipes/gravatar.php';
+
 // Check is a session exists
 if(!isset($_SESSION['login_user'])){
 
@@ -24,38 +27,35 @@ if(!isset($_SESSION['login_user'])){
 	
 		<title><?php echo SITE_NAME; ?></title>
 		
-		<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/style.css?" rel="stylesheet" type="text/css">
 
 	</head>
 	
 	<body class="dashboard">
 
-		<!-- <div id="profile">
-
-			<b id="welcome">Welcome : <i><?php echo $login_session; ?></i></b>
-			<b id="logout"><a href="logout.php">Log Out</a></b>
-
-		</div> -->
-
-
 		<div class="header clearfix">
 			
-			<div class="logo"></div>
+			<div class="logo clearfix">
+				<div class="icon">P</div>
+				<div class="name">
+					<p>Pipelines</p>
+				</div>
+			</div>
 
 			<div class="navigation">
 				
 				<ul class="clearfix">
 			
 					<li>
-						<a href="#"><i class="fa fa-user"></i></a>
+						<a class="ico" href="#"><i class="fa fa-user"></i></a>
 					</li>
 			
 					<li>
-						<a href="#"><i class="fa fa-user"></i></a>
+						<a class="ico" href="#"><i class="fa fa-user"></i></a>
 					</li>
 			
 					<li>
-						<a href="#"><i class="fa fa-user"></i></a>
+						<a class="ico" href="#"><i class="fa fa-user"></i></a>
 					</li>
 			
 					<li>
@@ -65,15 +65,54 @@ if(!isset($_SESSION['login_user'])){
 
 						<ul>
 					
-							<li><a href="">Account Settings</a></li>
+							<li><a href="accountSettings.php">Account Settings</a></li>
 							<li><a href="logout.php">Logout</a></li>
 					
 						</ul>
 					
 					</li>
+
+					<li><img src="<?php echo $gravatar; ?>" class="gravatar" alt="<?php echo $login_session; ?>"></li>
 			
 				</ul>
 			
+			</div>
+
+		</div>
+
+		<div class="sidebar">
+			<nav>
+				<ul>
+					<li><a href="dashboard.php"><i class="fa fa-user"></i><span>Dashboard</span></a></li>
+					<li><a href=""><i class="fa fa-user"></i><span>Web Hooks</span></a></li>
+					<li><a href=""><i class="fa fa-user"></i><span>Add Web Hook</span></a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="container">
+
+			<header>
+				<h1>Dashboard</h1> <p><a href="dashboard.php">refresh</a></p>
+			</header>
+			
+			<div class="blockContainer">
+				
+				<!-- Latest Hooks -->
+				<div class="block">
+
+					<header>
+						<h2>Latest Hooks</h2>
+					</header>
+
+					<div class="content">
+						
+
+
+					</div>
+
+				</div>
+
 			</div>
 
 		</div>
