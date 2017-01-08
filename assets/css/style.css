@@ -435,7 +435,7 @@ body.accountSettings {
 		margin: 50px 0;
 	}
 
-	body.accountSettings .profile button {
+	body.accountSettings .profile button, body.accountSettings .users button {
 		background: rgba(0,0,0,0.1);
 		border: 0;
 		color: #fff;
@@ -445,6 +445,10 @@ body.accountSettings {
 		display: block;
 		margin-bottom: 25px;
 		cursor: pointer;
+	}
+
+	body.accountSettings .users button {
+		margin-bottom: 0;
 	}
 
 		body.accountSettings .users button:hover {
@@ -473,6 +477,114 @@ body.accountSettings {
 			padding: 10px;
 			color: #fff;
 		}	
+
+			body.accountSettings .users .userInformation.add li {
+				width: 16.6667%;
+			}
+
+		body.accountSettings .users .userInformation li input {
+			width: 90%;
+			background: rgba(0,0,0,0.1);
+			border: 0;
+			color: #fff;
+			padding: 10px;
+			font-size: 14px;
+			font-weight: 300;
+			font-family: 'Raleway',sans-serif;
+			display: block;
+		}
+
+
+/* Pipeline Settings */
+body.pipeSettings {
+
+}
+
+	body.pipeSettings .profile label {
+		display: block;
+		width: 100%;
+		color: #adaeb0;
+		margin-bottom: 10px;
+	} 
+
+	body.pipeSettings .profile input {
+		width: 500px;
+		background: rgba(0,0,0,0.1);
+		border: 0;
+		color: #fff;
+		padding: 10px;
+		font-size: 14px;
+		font-weight: 300;
+		display: block;
+		margin-bottom: 25px;
+	}
+
+	body.pipeSettings .profile hr {
+		border: 0;
+		background-color: transparent;
+		border-bottom: 1px solid rgba(173,174,176,0.2);
+		width: 100px;
+		margin: 50px 0;
+	}
+
+	body.pipeSettings .profile button, body.pipeSettings .users button {
+		background: rgba(0,0,0,0.1);
+		border: 0;
+		color: #fff;
+		padding: 12px 15px;
+		font-size: 14px;
+		font-weight: 300;
+		display: block;
+		margin-bottom: 25px;
+		cursor: pointer;
+	}
+
+	body.pipeSettings .users button {
+		margin-bottom: 0;
+	}
+
+		body.pipeSettings .users button:hover {
+			background-color: #000;
+		}
+
+	
+	body.pipeSettings .users .userInformation {
+		width: 100%;
+		border-bottom: 1px solid #2e3038;
+		list-style: none;
+		padding: 8px 0;
+	}
+
+		body.pipeSettings .users .userInformation:hover {
+			background-color: rgba(0,0,0,0.1);
+		}
+
+			body.pipeSettings .users .userInformation:nth-child(1):hover {
+				background-color: rgba(0,0,0,0);
+			}
+
+		body.pipeSettings .users .userInformation li {
+			float: left;
+			width: 25%;
+			padding: 10px;
+			color: #fff;
+		}	
+
+			body.pipeSettings .users .userInformation.add li {
+				width: 16.6667%;
+			}
+
+		body.pipeSettings .users .userInformation li input {
+			width: 90%;
+			background: rgba(0,0,0,0.1);
+			border: 0;
+			color: #fff;
+			padding: 10px;
+			font-size: 14px;
+			font-weight: 300;
+			font-family: 'Raleway',sans-serif;
+			display: block;
+		}
 
 
 /* Auth Page */
@@ -507,7 +619,7 @@ body.auth {
 			}
 
 			body.auth .authInformation li input {
-				width: 250px;
+				width: 90%;
 				background: rgba(0,0,0,0.1);
 				border: 0;
 				color: #fff;
@@ -567,8 +679,45 @@ body.auth {
 				background-color: #000;
 			}
 
+body.error {
+	background-image: url(../images/background.jpg);
+	background-size: cover;
+}
 
+	body.error .cover {
+		width: 100%;
+		height: 100vh;
+		display: block;
+		background-color: rgba(173,67,134,0.25);
+		background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIHN0b3AtY29sb3I9IiNlNTQwNzAiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0iI2QyNDE3OCIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjEiLz48L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjdnNnZykiIC8+PC9zdmc+);
+		background-image: -webkit-gradient(linear, 0% 0%, 100% 100%,color-stop(0, rgb(229, 64, 112)),color-stop(1, rgb(210, 65, 120)));
+		background-image: -webkit-linear-gradient(top left,rgba(229, 64, 112, 0.1) 20px,rgba(116, 70, 156, 0.4) 100%);
+		background-image: linear-gradient(to bottom right,rgba(229, 64, 112, 0.1) 20px,rgba(116, 70, 156, 0.4) 100%);
+		background-image: -ms-linear-gradient(top left,rgba(229, 64, 112, 0.1) 20px,rgba(116, 70, 156, 0.4) 100%);
+		position: relative;
+	}
 
+	body.error .error_404 {
+		width: 600px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -300px;
+		margin-top: -215.5px;
+	}
+
+		body.error .error_404 h1 {
+			font-size: 300px;
+			text-align: center;
+			text-shadow: 0 0 15px rgba(0,0,0,0.5);
+			color: transparent;
+		}
+
+		body.error .error_404 p {
+			font-size: 50px;
+			text-align: center;
+			margin-top: 20px;
+		}
 
 
 

@@ -107,8 +107,9 @@ $apiKey = generateApi();
 				<ul>
 					<li><a href="dashboard.php"><i class="fa fa-user"></i><span>Dashboard</span></a></li>
 					<li><a href="webhooks.php"><i class="fa fa-user"></i><span>Web Hooks</span></a></li>
-					<li><a href="addhooks.php"><i class="fa fa-user"></i><span>Add Web Hook</span></a></li>
+					<li><a href="addhooks.php"><i class="fa fa-user"></i><span>End Points</span></a></li>
 					<li><a href="authkeys.php"><i class="fa fa-user"></i><span>Auth Key</span></a></li>
+					<li><a href="settings.php"><i class="fa fa-user"></i><span>Pipeline Settings</span></a></li>
 				</ul>
 			</nav>
 		</div>
@@ -133,7 +134,7 @@ $apiKey = generateApi();
 							
 							<ul class="clearfix">
 							
-								<li><input type="text" name="keyname" placeholder="Name"></li>
+								<li><input type="text" name="keyname" placeholder="Hook Name"></li>
 							
 								<li><input type="text" name="keyvalue" value="<?php echo $apiKey; ?>"></li>
 							
@@ -167,7 +168,7 @@ $apiKey = generateApi();
 					<div class="content">
 						
 						<ul class="authInformation clearfix">
-							<li>Auth Name</li>	
+							<li>Hook Name</li>	
 							<li>Auth Key</li>	
 						</ul>
 

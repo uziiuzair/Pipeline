@@ -17,21 +17,6 @@ if(!isset($_SESSION['login_user'])){
 
 }
 
-$passwordUpated = '';
-$passError  = false;
-if(!empty($_POST['passwd'])) {
-
-	$passwd 	= $_POST['passwd'];
-	$passwdRent = $_POST['passwdRent'];
-
-	if ($passwd == $passwdRent) {
-		include 'include/pipes/updatePassword.php';
-	} else {
-		$passError = true;
-	}
-
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -42,13 +27,13 @@ if(!empty($_POST['passwd'])) {
 	
 		<meta charset="utf-8">
 	
-		<title><?php echo SITE_NAME; ?> | Account Settings</title>
+		<title><?php echo SITE_NAME; ?> | Pipeline Settings</title>
 		
-		<link href="assets/css/style.css?1" rel="stylesheet" type="text/css">
+		<link href="assets/css/style.css?2" rel="stylesheet" type="text/css">
 
 	</head>
 	
-	<body class="dashboard accountSettings">
+	<body class="dashboard pipeSettings">
 
 		<div class="header clearfix">
 			
@@ -112,7 +97,7 @@ if(!empty($_POST['passwd'])) {
 		<div class="container">
 
 			<header>
-				<h1>Account Settings</h1> </p>
+				<h1>Pipeline Settings</h1><p style="color:#adaeb0;">The current user is <a><?php echo $accUsername; ?></a></p>
 			</header>
 			
 			<div class="blockContainer">
@@ -121,7 +106,7 @@ if(!empty($_POST['passwd'])) {
 				<div class="block profile">
 	
 					<header>
-						<h2>Your Profile</h2>
+						<h2>General Settings</h2>
 					</header>
 
 					<div class="content">
@@ -142,34 +127,42 @@ if(!empty($_POST['passwd'])) {
 
 						<hr>
 
-						<form action="" method="post">
-							<label for="passwd">Change Password</label>
-
-							<?php 
-
-							if ($passError == true) {
-								echo '<p style="color:#b44343; margin-bottom:15px;">Password do not match!</p>';
-							}
-
-							if ($passwordUpated == '') {
-								
-							} else {
-								echo '<p style="color:#37a628; margin-bottom:15px;">' . $passwordUpated . '</p>';
-							}
-							
-							?>
-
-							<input type="password" name="passwd" id="passwd" placeholder="Enter Password">
-							<input type="password" name="passwdRent" id="passwdRent" placeholder="Re-Enter Password">
-
-							<button>Submit</button>
-						</form>
-
 					</div>
 
 				</div>
 
 				<?php if ($accRole == 1): ?>
+
+					<div class="block addUser users">
+						<header>
+							<h2>Add New User</h2>
+						</header>
+
+						<div class="content">
+							
+							<ul class="userInformation add clearfix">
+								<li>
+									<input type="text" name="userFullName" placeholder="Full Name">
+								</li>
+								<li>
+									<input type="text" name="userUsername" placeholder="Username">
+								</li>
+								<li>
+									<input type="email" name="userEmail" placeholder="Email">
+								</li>
+								<li>
+									<input type="password" name="userPassword" placeholder="Password">
+								</li>
+								<li>
+									<input type="checkbox" name="isAdmin"><label for="isAdmin">Is Admin?</label>
+								</li>
+								<li>
+									<button>Add User</button>
+								</li>
+							</ul>
+
+						</div>
+					</div>
 					
 					<div class="block users">
 						

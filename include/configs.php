@@ -12,16 +12,17 @@ $database_user = 'root';
 $database_pass = 'root';
 $database_db = 'pipeline';
 
-include 'pipes.php';
+include 'pipes/default_constants.php';
 include 'mysql_connect.php';
 //include 'mysql_functions.php';
 include 'functions.php';
 
+defaultConstants();
+
 // define('SITE_NAME', 'Pipelines');
 // define('COMPANY_NAME', 'uziiuzair.com');
 // define('COMPANY_SITE', 'http://www.uziiuzair.com/');
-// define('PIPES_URL', '');
-
+// define('PIPES_URL', 'http://localhost:8888/Pipeline/');
 
 
 ?>

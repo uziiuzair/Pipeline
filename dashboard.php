@@ -85,8 +85,9 @@ if(!isset($_SESSION['login_user'])){
 				<ul>
 					<li><a href="dashboard.php"><i class="fa fa-user"></i><span>Dashboard</span></a></li>
 					<li><a href="webhooks.php"><i class="fa fa-user"></i><span>Web Hooks</span></a></li>
-					<li><a href="addhooks.php"><i class="fa fa-user"></i><span>Add Web Hook</span></a></li>
+					<li><a href="addhooks.php"><i class="fa fa-user"></i><span>End Points</span></a></li>
 					<li><a href="authkeys.php"><i class="fa fa-user"></i><span>Auth Key</span></a></li>
+					<li><a href="settings.php"><i class="fa fa-user"></i><span>Pipeline Settings</span></a></li>
 				</ul>
 			</nav>
 		</div>
@@ -108,7 +109,14 @@ if(!isset($_SESSION['login_user'])){
 
 					<div class="content">
 						
-
+						<?php 
+						if (defined('PIPES_URL')) {
+						 	echo 'DEFINED';
+						 	$url = PIPES_URL .'heh';
+						 	echo $url;
+						} else {
+							echo 'NOT DEFINED';
+							} ?>
 
 					</div>
 

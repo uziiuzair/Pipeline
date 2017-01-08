@@ -1,6 +1,7 @@
 <?php 
 // Include Sessions
-include('sessions.php');
+//include('sessions.php');
+require 'include/configs.php';
 ?>
 
 <!DOCTYPE html>
@@ -10,20 +11,19 @@ include('sessions.php');
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title></title>
-		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="assets/css/style.css?2">
 	
 	</head>
 	<body class="error">
-	
-		<?php if(!isset($_SESSION['login_user'])){ ?>
-		<div class="not_logged_in">
-			<p>Sorry, You're not authorized to access this page.</p>
+
+		<div class="cover">
+			
+			<div class="error_404">
+				<h1>404</h1>
+				<p>Page Not Found</p>
+			</div>
+
 		</div>
-		<?php } else { 
-			header("location: index.php");
-		} ?>
-
-
 
 	</body>
 </html>

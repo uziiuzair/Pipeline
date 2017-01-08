@@ -27,10 +27,10 @@ function db_connect($value, $field, $table, $method) {
 	// Check Method
 	if ($method == 'get') {
 		// Set GET SQL script
-		$sql = "SELECT " . $field . " FROM " . $table;
+		$sql = "SELECT $field FROM $table";
 	} elseif ($method == 'insert') {
 		// INSERT SQL Script
-		$sql = "INSERT INTO " . $table . " ( " . $field . " ) VALUES ( " . $value . " )";
+		$sql = "INSERT INTO $table ( $field ) VALUES ( $value  )";
 	}
 	
 	$result = $connection->query($sql);
@@ -50,7 +50,7 @@ function db_insert($table,$value,$field) {
 
 	mysqli_select_db($connection, $database_db) or die( "Unable to select database");
 
-	$sql = "INSERT INTO " . $table . " ( " . $field . " ) VALUES ( " . $value . " )";
+	$sql = "INSERT INTO $table ( $field ) VALUES ( $value )";
 
 	$result = $connection->query($sql);
 
