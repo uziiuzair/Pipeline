@@ -112,7 +112,7 @@ if(!isset($_SESSION['login_user'])){
 						<?php 
 						if (defined('PIPES_URL')) {
 						 	echo 'DEFINED';
-						 	$url = PIPES_URL .'heh';
+						 	$url = PIPES_URL;
 						 	echo $url;
 						} else {
 							echo 'NOT DEFINED';

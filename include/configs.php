@@ -17,12 +17,12 @@ include 'mysql_connect.php';
 //include 'mysql_functions.php';
 include 'functions.php';
 
-defaultConstants();
-
 // define('SITE_NAME', 'Pipelines');
 // define('COMPANY_NAME', 'uziiuzair.com');
 // define('COMPANY_SITE', 'http://www.uziiuzair.com/');
-// define('PIPES_URL', 'http://localhost:8888/Pipeline/');
+define('PIPES_URL', 'http://localhost:8888/Pipeline/');
 
+// Defines constans if not already defined.
+defaultConstants();
 
 ?>
