@@ -30,4 +30,4 @@ function get_gravatar( $email, $s = 200, $d = 'mm', $r = 'g', $img = false, $att
 
 $gravatar = get_gravatar($user_email);
 
- ?>
+?>

@@ -38,7 +38,7 @@ if(!isset($_SESSION['login_user'])){
 			<div class="logo clearfix">
 				<div class="icon">P</div>
 				<div class="name">
-					<p>Pipelines</p>
+					<p><?php echo SITE_NAME; ?></p>
 				</div>
 			</div>
 
@@ -117,6 +117,8 @@ if(!isset($_SESSION['login_user'])){
 						} else {
 							echo 'NOT DEFINED';
 							} ?>
+
+
 
 					</div>
 

@@ -45,13 +45,7 @@ body.login .overlay {
 	width: 100%;
 	height: 100vh;
 	display: block;
-	/*background-color: rgba(63, 169, 209, 0.25);
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSIxMDAlIj48c3RvcCBzdG9wLWNvbG9yPSIjNTdjM2U4IiBzdG9wLW9wYWNpdHk9IjAuMDkiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiMyNzhmYmEiIHN0b3Atb3BhY2l0eT0iMC40IiBvZmZzZXQ9IjEiLz48L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjdnNnZykiIC8+PC9zdmc+);
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%,color-stop(0, rgba(87, 195, 232, 0)),color-stop(1, rgba(39, 143, 186, 0.4)));
-    background-image: -webkit-linear-gradient(top,rgba(87, 195, 232, 0) -0.5px,rgba(39, 143, 186, 0.4) 100%);
-    background-image: linear-gradient(to bottom,rgba(87, 195, 232, 0) -0.5px,rgba(39, 143, 186, 0.4) 100%);
-    background-image: -ms-linear-gradient(top,rgba(87, 195, 232, 0) -0.5px,rgba(39, 143, 186, 0.4) 100%);*/
-    background-color: rgba(173,67,134,0.25);
+	background-color: rgba(173,67,134,0.25);
 	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIHN0b3AtY29sb3I9IiNlNTQwNzAiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0iI2QyNDE3OCIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjEiLz48L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjdnNnZykiIC8+PC9zdmc+);
 	background-image: -webkit-gradient(linear, 0% 0%, 100% 100%,color-stop(0, rgb(229, 64, 112)),color-stop(1, rgb(210, 65, 120)));
 	background-image: -webkit-linear-gradient(top left,rgba(229, 64, 112, 0.1) 20px,rgba(116, 70, 156, 0.4) 100%);
@@ -651,7 +645,7 @@ body.auth {
 		}
 
 		.block_addAuth input {
-			width: 250px;
+			width: 90%;
 			background: rgba(0,0,0,0.1);
 			border: 0;
 			color: #fff;
@@ -709,7 +703,7 @@ body.error {
 		body.error .error_404 h1 {
 			font-size: 300px;
 			text-align: center;
-			text-shadow: 0 0 15px rgba(0,0,0,0.5);
+			text-shadow: 0 0 30px rgba(0,0,0,0.5);
 			color: transparent;
 		}
 

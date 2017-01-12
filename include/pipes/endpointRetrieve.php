@@ -1,5 +1,4 @@
 <?php
-
 // Establishing Connection with Server by passing server_name, user_id and password as a parameter
 $connection 	= 	mysqli_connect($database_host, $database_user, $database_pass);
 
@@ -7,14 +6,7 @@ $connection 	= 	mysqli_connect($database_host, $database_user, $database_pass);
 $db 			= 	mysqli_select_db($connection, $database_db);
 
 // SQL Query To Fetch Complete Information Of User
-
-if (mysqli_query($connection, "INSERT INTO endpoints (id, name, endpoint) VALUES (NULL, '$endPointName', '$endPointURL')")) {
-	$pointAdded = 'End Point Added!';
-} else {
-	$pointAdded = 'End Point not Added!';
-}
-
+$ses_sql 		= 	mysqli_query($connection, "SELECT * FROM endpoints");
+$allPoints		= 	mysqli_fetch_all($ses_sql,MYSQLI_ASSOC);
 
 ?>
-
-

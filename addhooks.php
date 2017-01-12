@@ -7,7 +7,7 @@ include('sessions.php');
 
 // Gravatar
 include 'include/pipes/gravatar.php';
-include 'include/pipes/authRetrieve.php';
+include 'include/pipes/endpointRetrieve.php';
 
 // Check is a session exists
 if(!isset($_SESSION['login_user'])){
@@ -16,15 +16,14 @@ if(!isset($_SESSION['login_user'])){
 
 }
 
-$authAdded = '';
+$pointAdded = '';
 if(!empty($_POST['keyname'])) {
 
 	$endPointName 	= $_POST['keyname'];
-	$endPointURL 	= '';
+	$endPointURL 	= $_POST['keyvalue'];
 		
-	include 'include/pipes/addAuthKey.php';
+	include 'include/pipes/addEndpoint.php';
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +36,7 @@ if(!empty($_POST['keyname'])) {
 	
 		<title><?php echo SITE_NAME; ?> | Auth Keys</title>
 		
-		<link href="assets/css/style.css?2" rel="stylesheet" type="text/css">
+		<link href="assets/css/style.css" rel="stylesheet" type="text/css">
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 
@@ -123,7 +122,7 @@ if(!empty($_POST['keyname'])) {
 				<div id="addKeyBlock" class="block hidden block_addAuth">
 					
 					<header>
-						<h2>Add Key</h2>
+						<h2>Add Endpoint</h2>
 					</header>
 
 					<div class="content">
@@ -132,11 +131,11 @@ if(!empty($_POST['keyname'])) {
 							
 							<ul class="clearfix">
 							
-								<li><input type="text" name="keyname" placeholder="Hook Name"></li>
+								<li><input type="text" id="keyname" name="keyname" placeholder="Hook Name"></li>
 							
-								<li><input type="text" name="keyvalue" value="<?php echo $apiKey; ?>"></li>
+								<li><input type="text" id="keyvalue" name="keyvalue" value="<?php echo PIPES_URL; ?>calls.php?c="></li>
 							
-								<li><button>Add Key</button></li>
+								<li><button>Add Endpoint</button></li>
 							
 							</ul>
 
@@ -148,10 +147,10 @@ if(!empty($_POST['keyname'])) {
 
 				<?php 
 
-				if ($authAdded == '') {
+				if ($pointAdded == '') {
 					
 				} else {
-					echo '<p style="color:#37a628; margin-bottom:15px;">'. $authAdded .'</p>';
+					echo '<p style="color:#37a628; margin-bottom:15px;">'. $pointAdded .'</p>';
 				} 
 
 				?>
@@ -171,14 +170,14 @@ if(!empty($_POST['keyname'])) {
 						</ul>
 
 						<?php 
-						$arraySize = sizeof($allAuths);
+						$arraySize = sizeof($allPoints);
 						$arrayCount = 0;
 						
 						while ($arrayCount < $arraySize) { ?>
 							
 							<ul class="authInformation clearfix">
-								<li><span><?php echo $allAuths[$arrayCount]['authname']; ?></span></li>
-								<li><input type="text" value="<?php echo $allAuths[$arrayCount]['authKey']; ?>"></li>
+								<li><span><?php echo $allPoints[$arrayCount]['name']; ?></span></li>
+								<li><input type="text" value="<?php echo $allPoints[$arrayCount]['endpoint']; ?>" disabled></li>
 							</ul>
 
 							<?php $arrayCount = $arrayCount + 1; ?>
@@ -192,6 +191,14 @@ if(!empty($_POST['keyname'])) {
 
 		</div>
 
+		<script>
+			$(document).ready(function() {
+				$('#keyname').keyup(function(e){
+					var value = '<?php echo PIPES_URL; ?>calls.php?c=' + $(this).val();
+					$('#keyvalue').val(value);
+				});
+			});
+		</script>
 	</body>
 
 </html>
