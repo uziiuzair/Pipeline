@@ -4,6 +4,8 @@ require 'include/configs.php';
 
 // Include Sessions
 include('sessions.php');
+include 'include/pipes/endpointRetrieve.php';
+include 'include/pipes/authRetrieve.php';
 
 // Gravatar
 include 'include/pipes/gravatar.php';
@@ -27,7 +29,7 @@ if(!isset($_SESSION['login_user'])){
 	
 		<title><?php echo SITE_NAME; ?> | Dashboard</title>
 		
-		<link href="assets/css/style.css?" rel="stylesheet" type="text/css">
+		<link href="assets/css/style.css?1" rel="stylesheet" type="text/css">
 
 	</head>
 	
@@ -98,31 +100,100 @@ if(!isset($_SESSION['login_user'])){
 				<h1>Dashboard</h1> <p><a href="dashboard.php">refresh</a></p>
 			</header>
 			
-			<div class="blockContainer">
+			<div class="blockContainer clearfix">
 				
 				<!-- Latest Hooks -->
-				<div class="block">
+				<div class="block dashBlocks">
 
 					<header>
 						<h2>Latest Hooks</h2>
 					</header>
 
 					<div class="content">
-						
-						<?php 
-						if (defined('PIPES_URL')) {
-						 	echo 'DEFINED';
-						 	$url = PIPES_URL;
-						 	echo $url;
-						} else {
-							echo 'NOT DEFINED';
-							} ?>
-
-
 
 					</div>
 
 				</div>
+
+				<!-- Auth Keys -->
+				<div class="block span6 dashBlocks">
+					
+					<header>
+						<h2>Auth Keys</h2>
+					</header>
+
+					<div class="content">
+						
+						<?php 
+						$authArraySize = sizeof($allAuths);
+						$authArrayCount = 0;
+
+						if ($authArraySize >= 5) {
+							while ($authArrayCount < 5) { ?>
+								<ul class="clearfix">
+								<li><span><?php echo $allAuths[$authArrayCount]['authname']; ?></span></li>
+								<li><input type="text" value="<?php echo $allAuths[$authArrayCount]['authKey']; ?>"></li>
+							</ul>
+
+							<?php $authArrayCount = $authArrayCount + 1;
+							}
+						} else {
+
+							while ($authArrayCount < $authArraySize) { ?>
+								<ul class="clearfix">
+								<li><span><?php echo $allAuths[$authArrayCount]['authname']; ?></span></li>
+								<li><input type="text" value="<?php echo $allAuths[$authArrayCount]['authKey']; ?>"></li>
+							</ul>
+
+							<?php $authArrayCount = $authArrayCount + 1; ?>
+						<?php }
+						}
+						
+						 ?>
+					</div>
+				
+				</div>
+				
+
+				<!-- Webhook Endpoints -->
+				<div class="block span6 dashBlocks">
+					
+					<header>
+						<h2>End Points</h2>
+					</header>
+
+					<div class="content">
+						
+						<?php 
+						$arraySize = sizeof($allPoints);
+						$arrayCount = 0;
+
+						if ($arraySize >= 5) {
+							while ($arrayCount < 5) { ?>
+								<ul class="clearfix">
+									<li><span><?php echo $allPoints[$arrayCount]['name']; ?></span></li>
+									<li><input type="text" value="<?php echo $allPoints[$arrayCount]['endpoint']; ?>" disabled></li>
+								</ul>
+
+								<?php $arrayCount = $arrayCount + 1;
+							}
+						} else {
+							while ($arrayCount < $arraySize) { ?>
+								<ul class="clearfix">
+									<li><span><?php echo $allPoints[$arrayCount]['name']; ?></span></li>
+									<li><input type="text" value="<?php echo $allPoints[$arrayCount]['endpoint']; ?>" disabled></li>
+								</ul>
+
+								<?php $arrayCount = $arrayCount + 1;
+							}
+						} ?>
+						
+						
+
+					</div>
+				
+				</div>
+
 
 			</div>
 

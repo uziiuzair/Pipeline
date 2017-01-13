@@ -322,13 +322,26 @@ body.dashboard .container {
 		/* Blocks */
 		body.dashboard .container .blockContainer {
 			width: 100%;
+			min-width: 880px;
+			max-width: 1200px;
 		}
 
 		body.dashboard .container .block {
+			width: 100%;
 			background-color: #282a31;
 			padding: 15px;
 			margin-bottom: 15px;
 		}
+
+			body.dashboard .container .block.span6 {
+				width: 49%;
+			    float: left;
+			    margin-left: 13px;
+			}	
+
+				body.dashboard .container .span6:nth-child(2n+2) {
+					margin-left: 0;
+				}
 
 			body.dashboard .container .block header {
 				padding-bottom: 10px;
@@ -629,6 +642,7 @@ body.auth {
 	display: none;
 }
 
+
 	/* Add Auth Keys */
 	.block_addAuth {
 
@@ -673,6 +687,57 @@ body.auth {
 				background-color: #000;
 			}
 
+	/* Dashboard: Latest Hooks */
+	.block.dashLatestHooks {
+
+	}
+	
+	/* Dashboard: Auth Keys */
+	.block.authKeys {
+
+	}
+	
+	/* Dashboard: End Points */
+	.block.endPoints {
+
+	}
+
+	/* DashboardBlocks */
+	.dashBlocks {
+
+	}
+
+		.dashBlocks ul {
+			list-style: none;
+			border-bottom: 1px solid #2e3038;
+			padding: 5px 0;
+		}
+
+			.dashBlocks ul li {
+				display: inline-block;
+				width: 49%;
+				margin: 0;
+			}
+
+				.dashBlocks ul li span {
+					color: #fff;
+					font-size: 14px;
+					font-family: 'Raleway', sans-serif;
+					font-weight: 100;
+				}
+
+				.dashBlocks ul li input {
+					background-color: rgba(0,0,0,0.2);
+					border: 0;
+					color: #fff;
+					padding:10px;
+					font-size: 14px;
+					font-family: 'Raleway', sans-serif;
+					font-weight: 100;
+				}
+
+
+/* Error Page */
 body.error {
 	background-image: url(../images/background.jpg);
 	background-size: cover;
