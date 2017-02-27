@@ -95,7 +95,7 @@ if(!isset($_SESSION['login_user'])){
 		<div class="container">
 
 			<header>
-				<h1>Web Hooks</h1> <p><a href="dashboard.php">refresh</a></p>
+				<h1>Web Hooks</h1> <p><a href="webhooks.php">refresh</a></p>
 			</header>
 			
 			<div class="blockContainer">
