@@ -99,11 +99,11 @@ if (!empty($_POST['keyname'])) {
 <div class="sidebar">
     <nav>
         <ul>
-            <li><a href="dashboard.php"><i class="fa fa-user"></i><span>Dashboard</span></a></li>
-            <li><a href="webhooks.php"><i class="fa fa-user"></i><span>Web Hooks</span></a></li>
-            <li><a href="addhooks.php"><i class="fa fa-user"></i><span>End Points</span></a></li>
-            <li><a href="authkeys.php"><i class="fa fa-user"></i><span>Auth Key</span></a></li>
-            <li><a href="settings.php"><i class="fa fa-user"></i><span>Pipeline Settings</span></a></li>
+            <li><a href="/dashboard.php"><i class="fa fa-user"></i><span>Dashboard</span></a></li>
+            <li><a href="/webhooks.php"><i class="fa fa-user"></i><span>Web Hooks</span></a></li>
+            <li><a href="/addhooks.php"><i class="fa fa-user"></i><span>End Points</span></a></li>
+            <li><a href="/authkeys.php"><i class="fa fa-user"></i><span>Auth Key</span></a></li>
+            <li><a href="/settings.php"><i class="fa fa-user"></i><span>Pipeline Settings</span></a></li>
         </ul>
     </nav>
 </div>
@@ -131,7 +131,7 @@ if (!empty($_POST['keyname'])) {
 
                         <li><input type="text" name="keyname" placeholder="Hook Name"></li>
 
-                        <li><input type="text" name="keyvalue" value="<?php echo $apiKey; ?>"></li>
+                        <li><input type="text" name="keyvalue" value="<?= $apiKey; ?>"></li>
 
                         <li>
                             <button>Add Key</button>
@@ -168,20 +168,20 @@ if (!empty($_POST['keyname'])) {
                     <li>Hook Name</li>
                     <li>Auth Key</li>
                 </ul>
-
                 <?php
-                $arraySize = sizeof($allAuths);
-                $arrayCount = 0;
 
-                while ($arrayCount < $arraySize) { ?>
+                $allAuths = Pipeline\Pipes\Auth::getAuths();
 
-                    <ul class="authInformation clearfix">
-                        <li><span><?php echo $allAuths[$arrayCount]['authname']; ?></span></li>
-                        <li><input type="text" value="<?php echo $allAuths[$arrayCount]['authKey']; ?>"></li>
-                    </ul>
+                $i = 0;
+                foreach ($allAuths as $auth) {
+                    if ($i == 5) {
+                        break;
+                    }
+                    echo Pipeline\Pipes\Auth::generateDashEntity($auth, true);
+                    $i++;
+                }
 
-                    <?php $arrayCount = $arrayCount + 1; ?>
-                <?php } ?>
+                ?>
 
             </div>
 

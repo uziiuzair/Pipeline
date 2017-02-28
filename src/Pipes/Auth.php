@@ -17,10 +17,10 @@ class Auth
         return $query->fetch_all(MYSQLI_ASSOC);
     }
 
-    public static function generateDashEntity($auth)
+    public static function generateDashEntity($auth, $authInf = false)
     {
         return '
-                <ul class="clearfix">
+                <ul class="clearfix ' . ($authInf ? 'authInformation' : '') . '">
                     <li><span>' . $auth['authname'] . '</span></li>
                     <li><input title="Auth Key" type="text" value="' . $auth['authKey'] . '"></li>
                 </ul>

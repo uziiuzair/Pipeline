@@ -114,13 +114,17 @@ if (!Pipeline\Sessions::get('user')) {
             </header>
 
             <div class="content">
-
                 <?php
 
                 $allAuths = Pipeline\Pipes\Auth::getAuths();
 
+                $i = 0;
                 foreach ($allAuths as $auth) {
+                    if ($i == 5) {
+                        break;
+                    }
                     echo Pipeline\Pipes\Auth::generateDashEntity($auth);
+                    $i++;
                 }
 
                 ?>
