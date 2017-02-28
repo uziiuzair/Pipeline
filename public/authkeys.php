@@ -9,13 +9,10 @@ if (!Pipeline\Sessions::get('user')) {
 
 $authAdded = '';
 if (!empty($_POST['keyname'])) {
-
-    $authName = $_POST['keyname'];
-    $authKeyValue = $_POST['keyvalue'];
-
-    $apiKey = Pipeline\Functions::generateApi();
+    Pipeline\Pipes\Auth::add($_POST['keyname'], $_POST['keyvalue']);
 }
 
+$apiKey = Pipeline\Functions::generateApi();
 
 ?>
 
