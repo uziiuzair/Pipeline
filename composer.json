@@ -1,0 +1,15 @@
+{
+  "name": "uziiuzair/pipeline",
+  "description": "A simple webhook manager.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Uzair Hayat"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "uziiuzair\\Pipeline\\": "src/"
+    }
+  }
+}
