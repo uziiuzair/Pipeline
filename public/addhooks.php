@@ -149,19 +149,15 @@ if(!empty($_POST['keyname'])) {
 							<li>End Point URL</li>	
 						</ul>
 
-						<?php 
-						$arraySize = sizeof($allPoints);
-						$arrayCount = 0;
-						
-						while ($arrayCount < $arraySize) { ?>
-							
-							<ul class="authInformation clearfix">
-								<li><span><?php echo $allPoints[$arrayCount]['name']; ?></span></li>
-								<li><input type="text" value="<?php echo $allPoints[$arrayCount]['endpoint']; ?>" disabled></li>
-							</ul>
+                        <?php
 
-							<?php $arrayCount = $arrayCount + 1; ?>
-						<?php } ?>
+                        $allPoints = Pipeline\Pipes\Endpoint::getEndpoints();
+
+                        foreach ($allPoints as $endpoint) {
+                            echo Pipeline\Pipes\Endpoint::generateDashEntity($endpoint, true);
+                        }
+
+                        ?>
 
 					</div>
 

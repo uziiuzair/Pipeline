@@ -17,10 +17,10 @@ class Endpoint
         return $query->fetch_all(MYSQLI_ASSOC);
     }
 
-    public static function generateDashEntity($endpoint)
+    public static function generateDashEntity($endpoint, $authInf = false)
     {
         return '
-                <ul class="clearfix">
+                <ul class="clearfix ' . ($authInf ? 'authInformation' : '') . '">
                     <li><span>' . $endpoint['name'] . '</span></li>
                     <li><input title="Endpoint" type="text" value="' . $endpoint['endpoint'] . '" disabled></li>
                 </ul>
