@@ -170,7 +170,7 @@ if(!empty($_POST['keyname'])) {
 		<script>
 			$(document).ready(function() {
 				$('#keyname').keyup(function(e){
-					var value = '<?php echo PIPES_URL; ?>calls.php?c=' + $(this).val();
+					var value = '<?= Pipeline\Config::PIPES_URL ?>calls.php?c=' + $(this).val();
 					$('#keyvalue').val(value);
 				});
 			});
