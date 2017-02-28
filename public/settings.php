@@ -1,208 +1,193 @@
 <?php
-// Initialize
-require 'include/configs.php';
-
-// Include Sessions
-include('sessions.php');
-
-// Gravatar
-include 'include/pipes/gravatar.php';
-include 'include/pipes/getAccountInformation.php';
-include 'include/pipes/listAllAccounts.php';
+require '../vendor/autoload.php';
+use uziiuzair\Pipeline;
 
 // Check is a session exists
-if(!isset($_SESSION['login_user'])){
-
-	header("location: error.php");
-
+if (!Pipeline\Sessions::get('user')) {
+    header("Location: /");
 }
-
 ?>
 
 <!DOCTYPE html>
 
 <html lang="en">
-	
-	<head>
-	
-		<meta charset="utf-8">
-	
-		<title><?php echo SITE_NAME; ?> | Pipeline Settings</title>
-		
-		<link href="assets/css/style.css?2" rel="stylesheet" type="text/css">
 
-	</head>
-	
-	<body class="dashboard pipeSettings">
+<head>
 
-		<div class="header clearfix">
-			
-			<div class="logo clearfix">
-				<div class="icon">P</div>
-				<div class="name">
-					<p>Pipelines</p>
-				</div>
-			</div>
+    <meta charset="utf-8">
 
-			<div class="navigation">
-				
-				<ul class="clearfix">
-			
-					<li>
-						<a class="ico" href="#"><i class="fa fa-user"></i></a>
-					</li>
-			
-					<li>
-						<a class="ico" href="#"><i class="fa fa-user"></i></a>
-					</li>
-			
-					<li>
-						<a class="ico" href="#"><i class="fa fa-user"></i></a>
-					</li>
-			
-					<li>
-						<a href="#">
-							<p>Hey, <?php echo $login_session; ?>!</p>
-						</a>
+    <title><?= Pipeline\Config::SITE_NAME ?> | Pipeline Settings</title>
 
-						<ul>
-					
-							<li><a href="accountSettings.php">Account Settings</a></li>
-							<li><a href="logout.php">Logout</a></li>
-					
-						</ul>
-					
-					</li>
+    <link href="assets/css/style.css?2" rel="stylesheet" type="text/css">
 
-					<li><img src="<?php echo $gravatar; ?>" class="gravatar" alt="<?php echo $login_session; ?>"></li>
-			
-				</ul>
-			
-			</div>
+</head>
 
-		</div>
+<body class="dashboard pipeSettings">
 
-		<div class="sidebar">
-			<nav>
-				<ul>
-					<li><a href="dashboard.php"><i class="fa fa-user"></i><span>Dashboard</span></a></li>
-					<li><a href="webhooks.php"><i class="fa fa-user"></i><span>Web Hooks</span></a></li>
-					<li><a href="addhooks.php"><i class="fa fa-user"></i><span>End Points</span></a></li>
-					<li><a href="authkeys.php"><i class="fa fa-user"></i><span>Auth Key</span></a></li>
-					<li><a href="settings.php"><i class="fa fa-user"></i><span>Pipeline Settings</span></a></li>
-				</ul>
-			</nav>
-		</div>
+<div class="header clearfix">
 
-		<div class="container">
+    <div class="logo clearfix">
+        <div class="icon">P</div>
+        <div class="name">
+            <p>Pipelines</p>
+        </div>
+    </div>
 
-			<header>
-				<h1>Pipeline Settings</h1><p style="color:#adaeb0;">The current user is <a><?php echo $accUsername; ?></a></p>
-			</header>
-			
-			<div class="blockContainer">
-				
-				<!-- Your Profile -->
-				<div class="block profile">
-	
-					<header>
-						<h2>General Settings</h2>
-					</header>
+    <div class="navigation">
 
-					<div class="content">
-						
-						
-						<label for="name">Full Name</label>
-						<input type="text" name="fullname" id="name" value="<?php echo $accName; ?>">
-						
-						<label for="username">User Name</label>
-						<input type="text" name="username" id="username" value="<?php echo $accUsername; ?>">
+        <ul class="clearfix">
 
-						<label for="email">E-Mail</label>
-						<input type="text" name="email" id="email" value="<?php echo $accEmail; ?>">
-						
-						<label for="">Gravatar</label>
-						<img src="<?php echo $gravatar; ?>" class="gravatar" alt="<?php echo $login_session; ?>">
-						<p style="color:#adaeb0; font-size: 13px; margin-top: 10px;">you can change your gravatar at <a style="color:#007eff;text-decoration: none;" href="http://gravatar.com">gravatar.com</a></p>
+            <li>
+                <a class="ico" href="#"><i class="fa fa-user"></i></a>
+            </li>
 
-						<hr>
+            <li>
+                <a class="ico" href="#"><i class="fa fa-user"></i></a>
+            </li>
 
-					</div>
+            <li>
+                <a class="ico" href="#"><i class="fa fa-user"></i></a>
+            </li>
 
-				</div>
+            <li>
+                <a href="#">
+                    <p>Hey, <?= Pipeline\Sessions::get('user')->name ?>!</p>
+                </a>
 
-				<?php if ($accRole == 1): ?>
+                <ul>
 
-					<div class="block addUser users">
-						<header>
-							<h2>Add New User</h2>
-						</header>
+                    <li><a href="accountSettings.php">Account Settings</a></li>
+                    <li><a href="logout.php">Logout</a></li>
 
-						<div class="content">
-							
-							<ul class="userInformation add clearfix">
-								<li>
-									<input type="text" name="userFullName" placeholder="Full Name">
-								</li>
-								<li>
-									<input type="text" name="userUsername" placeholder="Username">
-								</li>
-								<li>
-									<input type="email" name="userEmail" placeholder="Email">
-								</li>
-								<li>
-									<input type="password" name="userPassword" placeholder="Password">
-								</li>
-								<li>
-									<input type="checkbox" name="isAdmin"><label for="isAdmin">Is Admin?</label>
-								</li>
-								<li>
-									<button>Add User</button>
-								</li>
-							</ul>
+                </ul>
 
-						</div>
-					</div>
-					
-					<div class="block users">
-						
-						<header>
-							<h2>Users</h2>
-						</header>
-						
-						<div class="content">
-							<ul class="userInformation clearfix">
-								<li>ID</li>
-								<li>Username</li>
-								<li>Email</li>
-								<li>Full Name</li>
-							</ul>
-						
-							<?php 
-							$arraySize = sizeof($allAccs);
-							$arrayCount = 0;
-							
-							while ($arrayCount < $arraySize) { ?>
-								
-								<ul class="userInformation clearfix">
-									<li><?php echo $allAccs[$arrayCount]['id']; ?></li>
-									<li><?php echo $allAccs[$arrayCount]['username']; ?></li>
-									<li><?php echo $allAccs[$arrayCount]['email']; ?></li>
-									<li><?php echo $allAccs[$arrayCount]['fullname']; ?></li>
-								</ul>
+            </li>
 
-								<?php $arrayCount = $arrayCount + 1; ?>
-							<?php } ?>
-						</div>
+            <li>
+                <img src="<?= Pipeline\Pipes\Gravatar::get(Pipeline\Sessions::get('user')->email) ?>"
+                     class="gravatar"
+                     alt="<?= Pipeline\Sessions::get('user')->name ?>">
+            </li>
 
-					</div>
+        </ul>
 
-				<?php endif ?>
+    </div>
 
-			</div>
+</div>
 
-		</div>
+<?= Pipeline\Templater::sideBar() ?>
 
-	</body>
+<div class="container">
+
+    <header>
+        <h1>Pipeline Settings</h1>
+        <p style="color:#adaeb0;">The current user is <a><?= Pipeline\Sessions::get('user')->username ?></a></p>
+    </header>
+
+    <div class="blockContainer">
+
+        <!-- Your Profile -->
+        <div class="block profile">
+
+            <header>
+                <h2>General Settings</h2>
+            </header>
+
+            <div class="content">
+
+
+                <label for="name">Full Name</label>
+                <input type="text" name="fullname" id="name" value="<?= Pipeline\Sessions::get('user')->name ?>">
+
+                <label for="username">User Name</label>
+                <input type="text" name="username" id="username"
+                       value="<?= Pipeline\Sessions::get('user')->username ?>">
+
+                <label for="email">E-Mail</label>
+                <input type="text" name="email" id="email" value="<?= Pipeline\Sessions::get('user')->email ?>">
+
+                <label for="">Gravatar</label>
+                <img src="<?= Pipeline\Pipes\Gravatar::get(Pipeline\Sessions::get('user')->email) ?>"
+                     class="gravatar"
+                     alt="<?= Pipeline\Sessions::get('user')->username ?>"/>
+                <p style="color:#adaeb0; font-size: 13px; margin-top: 10px;">
+                    You can change your gravatar at <a style="color:#007eff;text-decoration: none;"
+                                                       href="https://gravatar.com">Gravatar.com</a>
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <?php if (Pipeline\Sessions::get('user')->admin == 1) { ?>
+
+            <div class="block addUser users">
+                <header>
+                    <h2>Add New User</h2>
+                </header>
+
+                <div class="content">
+
+                    <ul class="userInformation add clearfix">
+                        <li>
+                            <input type="text" name="userFullName" placeholder="Full Name">
+                        </li>
+                        <li>
+                            <input type="text" name="userUsername" placeholder="Username">
+                        </li>
+                        <li>
+                            <input type="email" name="userEmail" placeholder="Email">
+                        </li>
+                        <li>
+                            <input type="password" name="userPassword" placeholder="Password">
+                        </li>
+                        <li>
+                            <input type="checkbox" name="isAdmin"><label for="isAdmin">Is Admin?</label>
+                        </li>
+                        <li>
+                            <button>Add User</button>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="block users">
+
+                <header>
+                    <h2>Users</h2>
+                </header>
+
+                <div class="content">
+                    <ul class="userInformation clearfix">
+                        <li>ID</li>
+                        <li>Username</li>
+                        <li>Email</li>
+                        <li>Full Name</li>
+                    </ul>
+
+                    <?php
+
+                    $allUsers = Pipeline\Pipes\Users::getUsers();
+
+                    $i = 0;
+                    foreach ($allUsers as $user) {
+                        echo Pipeline\Pipes\Users::generateDashEntity($user, true);
+                    }
+
+                    ?>
+                </div>
+
+            </div>
+
+        <?php } ?>
+
+    </div>
+
+</div>
+
+</body>
 
 </html>
