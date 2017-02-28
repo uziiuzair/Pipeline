@@ -67,8 +67,8 @@ if (!empty($_POST['passwd'])) {
 
                 <ul>
 
-                    <li><a href="/accountSettings.php">Account Settings</a></li>
-                    <li><a href="/logout.php">Logout</a></li>
+                    <li><a href="accountSettings.php">Account Settings</a></li>
+                    <li><a href="logout.php">Logout</a></li>
 
                 </ul>
 

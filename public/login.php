@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
 
     // Check is a session exists
     if (Pipeline\Sessions::get('user')) {
-        header("Location: /dashboard.php");
+        header("Location: dashboard.php");
     } else {
         header("Location: /");
     }

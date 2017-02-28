@@ -9,7 +9,7 @@ use uziiuzair\Pipeline;
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Error 404</title>
-		<link rel="stylesheet" href="assets/css/style.css?2">
+		<?= Pipeline\Templater::getStyles() ?>
 	</head>
 	<body class="error">
 		<div class="cover">

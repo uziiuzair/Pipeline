@@ -13,6 +13,7 @@ class Config
     const COMPANY_NAME = 'uziiuzair.com';
     const COMPANY_SITE = 'http://www.uziiuzair.com/';
     const PIPES_URL = 'http://localhost:8888/Pipeline/';
+    const PIPES_PUBLIC = 'http://localhost:8888/Pipeline/public';
 
     // Default Database Details
     const DB_HOST = 'localhost';

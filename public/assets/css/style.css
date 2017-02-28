@@ -330,13 +330,13 @@ body.dashboard .container {
 			width: 100%;
 			background-color: #282a31;
 			padding: 15px;
-			margin-bottom: 15px;
+			margin-bottom: 24px;
 		}
 
 			body.dashboard .container .block.span6 {
 				width: 49%;
 			    float: left;
-			    margin-left: 13px;
+			    margin-left: 24px;
 			}	
 
 				body.dashboard .container .span6:nth-child(2n+2) {

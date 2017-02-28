@@ -57,8 +57,8 @@ if (!Pipeline\Sessions::get('user')) {
 
                 <ul>
 
-                    <li><a href="/accountSettings.php">Account Settings</a></li>
-                    <li><a href="/logout.php">Logout</a></li>
+                    <li><a href="accountSettings.php">Account Settings</a></li>
+                    <li><a href="logout.php">Logout</a></li>
 
                 </ul>
 
@@ -79,7 +79,7 @@ if (!Pipeline\Sessions::get('user')) {
 
     <header>
         <h1>Dashboard</h1>
-        <p><a href="/dashboard.php">Refresh</a></p>
+        <p><a href="dashboard.php">Refresh</a></p>
     </header>
 
     <div class="blockContainer clearfix">

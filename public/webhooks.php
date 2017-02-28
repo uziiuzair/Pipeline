@@ -82,7 +82,7 @@ if (!Pipeline\Sessions::get('user')) {
 
     <header>
         <h1>Web Hooks</h1>
-        <p><a href="/webhooks.php">Refresh</a></p>
+        <p><a href="webhooks.php">Refresh</a></p>
     </header>
 
     <div class="blockContainer">
