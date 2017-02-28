@@ -4,8 +4,15 @@ namespace uziiuzair\Pipeline\Pipes;
 
 use uziiuzair\Pipeline\Config;
 
+/**
+ * Class Users
+ * @package uziiuzair\Pipeline\Pipes
+ */
 class Users
 {
+    /**
+     * @return bool|array
+     */
     public static function getUsers()
     {
         if (!Config::$db) {
@@ -17,6 +24,10 @@ class Users
         return $query->fetch_all(MYSQLI_ASSOC);
     }
 
+    /**
+     * @param string $username
+     * @return \stdClass
+     */
     public static function getUser($username)
     {
         if (!Config::$db) {
@@ -40,6 +51,11 @@ class Users
         return $user;
     }
 
+    /**
+     * @param array $auth
+     * @param bool $authInf
+     * @return string
+     */
     public static function generateDashEntity($auth, $authInf = false)
     {
         return '
@@ -52,6 +68,11 @@ class Users
         ';
     }
 
+    /**
+     * @param string $name
+     * @param string $key
+     * @return bool
+     */
     public static function add($name, $key)
     {
         if (!Config::$db) {
@@ -63,6 +84,11 @@ class Users
         return $stmt->execute();
     }
 
+    /**
+     * @param string $username
+     * @param string $password
+     * @return bool
+     */
     public static function setPassword($username, $password)
     {
         if (!Config::$db) {

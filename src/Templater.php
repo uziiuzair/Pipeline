@@ -2,8 +2,15 @@
 
 namespace uziiuzair\Pipeline;
 
+/**
+ * Class Templater
+ * @package uziiuzair\Pipeline
+ */
 class Templater
 {
+    /**
+     * @return string
+     */
     public static function getStyles()
     {
         return '
@@ -11,6 +18,9 @@ class Templater
         ';
     }
 
+    /**
+     * @return string
+     */
     public static function getScripts()
     {
         return '
@@ -18,6 +28,9 @@ class Templater
         ';
     }
 
+    /**
+     * @return string
+     */
     public static function sideBar()
     {
         return '

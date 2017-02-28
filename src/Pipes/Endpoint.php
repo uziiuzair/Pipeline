@@ -4,8 +4,15 @@ namespace uziiuzair\Pipeline\Pipes;
 
 use uziiuzair\Pipeline\Config;
 
+/**
+ * Class Endpoint
+ * @package uziiuzair\Pipeline\Pipes
+ */
 class Endpoint
 {
+    /**
+     * @return bool|array
+     */
     public static function getEndpoints()
     {
         if (!Config::$db) {
@@ -17,6 +24,11 @@ class Endpoint
         return $query->fetch_all(MYSQLI_ASSOC);
     }
 
+    /**
+     * @param array $endpoint
+     * @param bool $authInf
+     * @return string
+     */
     public static function generateDashEntity($endpoint, $authInf = false)
     {
         return '
@@ -27,6 +39,11 @@ class Endpoint
         ';
     }
 
+    /**
+     * @param string $name
+     * @param string $endpoint
+     * @return bool
+     */
     public static function add($name, $endpoint)
     {
         if (!Config::$db) {
