@@ -1,124 +1,110 @@
 <?php
-// Initialize
-require 'include/configs.php';
-
-// Include Sessions
-include('sessions.php');
-
-// Gravatar
-include 'include/pipes/gravatar.php';
+require '../vendor/autoload.php';
+use uziiuzair\Pipeline;
 
 // Check is a session exists
-if(!isset($_SESSION['login_user'])){
-
-	header("location: error.php");
-
+if (!Pipeline\Sessions::get('user')) {
+    header("Location: /login.php");
 }
-
 ?>
 
 <!DOCTYPE html>
 
 <html lang="en">
-	
-	<head>
-	
-		<meta charset="utf-8">
-	
-		<title><?php echo SITE_NAME; ?> | Webhooks</title>
-		
-		<link href="assets/css/style.css?" rel="stylesheet" type="text/css">
 
-	</head>
-	
-	<body class="dashboard">
+<head>
 
-		<div class="header clearfix">
-			
-			<div class="logo clearfix">
-				<div class="icon">P</div>
-				<div class="name">
-					<p>Pipelines</p>
-				</div>
-			</div>
+    <meta charset="utf-8">
 
-			<div class="navigation">
-				
-				<ul class="clearfix">
-			
-					<li>
-						<a class="ico" href="#"><i class="fa fa-user"></i></a>
-					</li>
-			
-					<li>
-						<a class="ico" href="#"><i class="fa fa-user"></i></a>
-					</li>
-			
-					<li>
-						<a class="ico" href="#"><i class="fa fa-user"></i></a>
-					</li>
-			
-					<li>
-						<a href="#">
-							<p>Hey, <?php echo $login_session; ?>!</p>
-						</a>
+    <title><?= Pipeline\Config::SITE_NAME; ?> | Webhooks</title>
 
-						<ul>
-					
-							<li><a href="accountSettings.php">Account Settings</a></li>
-							<li><a href="logout.php">Logout</a></li>
-					
-						</ul>
-					
-					</li>
+    <?= Pipeline\Templater::getStyles() ?>
+    <?= Pipeline\Templater::getScripts() ?>
 
-					<li><img src="<?php echo $gravatar; ?>" class="gravatar" alt="<?php echo $login_session; ?>"></li>
-			
-				</ul>
-			
-			</div>
+</head>
 
-		</div>
+<body class="dashboard">
 
-		<div class="sidebar">
-			<nav>
-				<ul>
-					<li><a href="dashboard.php"><i class="fa fa-user"></i><span>Dashboard</span></a></li>
-					<li><a href="webhooks.php"><i class="fa fa-user"></i><span>Web Hooks</span></a></li>
-					<li><a href="addhooks.php"><i class="fa fa-user"></i><span>End Points</span></a></li>
-					<li><a href="authkeys.php"><i class="fa fa-user"></i><span>Auth Key</span></a></li>
-					<li><a href="settings.php"><i class="fa fa-user"></i><span>Pipeline Settings</span></a></li>
-				</ul>
-			</nav>
-		</div>
+<div class="header clearfix">
 
-		<div class="container">
+    <div class="logo clearfix">
+        <div class="icon">P</div>
+        <div class="name">
+            <p>Pipelines</p>
+        </div>
+    </div>
 
-			<header>
-				<h1>Web Hooks</h1> <p><a href="webhooks.php">refresh</a></p>
-			</header>
-			
-			<div class="blockContainer">
-				
-				<!-- Latest Hooks -->
-				<div class="block">
+    <div class="navigation">
 
-					<header>
-						<h2>Latest Hooks</h2>
-					</header>
+        <ul class="clearfix">
 
-					<div class="content">
-						
+            <li>
+                <a class="ico" href="#"><i class="fa fa-user"></i></a>
+            </li>
+
+            <li>
+                <a class="ico" href="#"><i class="fa fa-user"></i></a>
+            </li>
+
+            <li>
+                <a class="ico" href="#"><i class="fa fa-user"></i></a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <p>Hey, <?= Pipeline\Sessions::get('user')->name ?>!</p>
+                </a>
+
+                <ul>
+
+                    <li><a href="/accountSettings.php">Account Settings</a></li>
+                    <li><a href="/logout.php">Logout</a></li>
+
+                </ul>
+
+            </li>
+
+            <li>
+                <img src="<?= Pipeline\Pipes\Gravatar::get(Pipeline\Sessions::get('user')->email) ?>"
+                     class="gravatar"
+                     alt="<?= Pipeline\Sessions::get('user')->name ?>">
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<?= Pipeline\Templater::sideBar() ?>
+
+<div class="container">
+
+    <header>
+        <h1>Web Hooks</h1>
+        <p><a href="/webhooks.php">Refresh</a></p>
+    </header>
+
+    <div class="blockContainer">
+
+        <!-- Latest Hooks -->
+        <div class="block">
+
+            <header>
+                <h2>Latest Hooks</h2>
+            </header>
+
+            <div class="content">
 
 
-					</div>
+            </div>
 
-				</div>
+        </div>
 
-			</div>
+    </div>
 
-		</div>
+</div>
 
-	</body>
+</body>
 
 </html>
