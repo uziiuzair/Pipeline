@@ -1,4 +1,6 @@
-<?php // Receive the Call.
+<?php
+require '../vendor/autoload.php';
+use uziiuzair\Pipeline;
 
 // Call Type.
 // Defines the type of call and appropriately decides the best way to add it to the MySQL Database
@@ -10,23 +12,23 @@ $postData = file_get_contents("php://input");
 
 // Check whether the Type has been mentioned.
 if (!empty($_GET['type'])) {
-	$callType = $_GET['type'];
+    $callType = $_GET['type'];
 }
 
 // Check whether the Call has been mentioned. If not, KILL THE SCRIPT
 if (empty($theCall)) {
-	die('This file only accepts POST data');
+    die('This file only accepts POST data');
 } else {
-	define('CALL', $theCall);
+    define('CALL', $theCall);
 }
 
 
-if (CALL == 'mailgun') { // MAILGUN 
-	include 'include/calls/mailgun.php';
+if (CALL == 'mailgun') { // MAILGUN
+    new Pipeline\Calls\Mailgun;
 } elseif (CALL == 'mailchimp') { // MAILCHIMP
-	echo "MAILCHIMP";
+    new Pipeline\Calls\MailChimp;
 } elseif (CALL == 'customerio') { // CUSTOMER.IO
-	include 'include/calls/customerio.php';
+    new Pipeline\Calls\CustomerIO;
 } else { // OTHERS
-	include 'include/calls/others.php';
+    new Pipeline\Calls\Others;
 }
