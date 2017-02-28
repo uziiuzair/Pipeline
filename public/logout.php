@@ -1,10 +1,8 @@
 <?php
-session_start();
+require '../vendor/autoload.php';
+use uziiuzair\Pipeline;
 
-// Destroying All Sessions
-if(session_destroy()) {
-	
-	header("Location: index.php"); // Redirecting To Home Page
-
+// Check is a session exists
+if (Pipeline\Sessions::destroy()) {
+    header("Location: /login.php");
 }
-?>

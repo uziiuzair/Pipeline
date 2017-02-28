@@ -21,4 +21,10 @@ class Sessions
         unset($_SESSION[$key]);
         return true;
     }
+
+    public static function destroy()
+    {
+        session_destroy();
+        return true;
+    }
 }
