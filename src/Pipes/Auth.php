@@ -26,4 +26,15 @@ class Auth
                 </ul>
         ';
     }
+
+    public static function add($name, $key)
+    {
+        if (!Config::$db) {
+            Config::db();
+        }
+
+        $stmt = Config::$db->prepare("INSERT INTO auth (authname, authKey) VALUES (?, ?)");
+        $stmt->bind_param('ss', $name, $key);
+        return $stmt->execute();
+    }
 }

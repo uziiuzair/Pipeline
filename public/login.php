@@ -8,4 +8,11 @@ if (isset($_POST['submit'])) {
     }
 
     Pipeline\Functions::login($_POST['username'], $_POST['password']);
+
+    // Check is a session exists
+    if (Pipeline\Sessions::get('user')) {
+        header("Location: /dashboard.php");
+    } else {
+        header("Location: /");
+    }
 }

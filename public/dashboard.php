@@ -3,8 +3,8 @@ require '../vendor/autoload.php';
 use uziiuzair\Pipeline;
 
 // Check is a session exists
-if (Pipeline\Sessions::get('user')) {
-    header("Location: /dashboard.php");
+if (!Pipeline\Sessions::get('user')) {
+    header("Location: /");
 }
 ?>
 
