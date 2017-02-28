@@ -26,9 +26,8 @@ $apiKey = Pipeline\Functions::generateApi();
 
     <title><?= Pipeline\Config::SITE_NAME ?> | Auth Keys</title>
 
-    <link href="assets/css/style.css?2" rel="stylesheet" type="text/css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <?= Pipeline\Templater::getStyles() ?>
+    <?= Pipeline\Templater::getScripts() ?>
 
     <script>
         $(document).ready(function () {
@@ -93,23 +92,13 @@ $apiKey = Pipeline\Functions::generateApi();
 
 </div>
 
-<div class="sidebar">
-    <nav>
-        <ul>
-            <li><a href="/dashboard.php"><i class="fa fa-user"></i><span>Dashboard</span></a></li>
-            <li><a href="/webhooks.php"><i class="fa fa-user"></i><span>Web Hooks</span></a></li>
-            <li><a href="/addhooks.php"><i class="fa fa-user"></i><span>End Points</span></a></li>
-            <li><a href="/authkeys.php"><i class="fa fa-user"></i><span>Auth Key</span></a></li>
-            <li><a href="/settings.php"><i class="fa fa-user"></i><span>Pipeline Settings</span></a></li>
-        </ul>
-    </nav>
-</div>
+<?= Pipeline\Templater::sideBar() ?>
 
 <div class="container">
 
     <header>
         <h1>Auth Keys</h1>
-        <p><a id="addKey" href="#">add key</a></p>
+        <p><a id="addKey" href="#">Add key</a></p>
     </header>
 
     <div class="blockContainer">

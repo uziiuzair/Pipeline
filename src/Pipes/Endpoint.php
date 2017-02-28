@@ -26,4 +26,15 @@ class Endpoint
                 </ul>
         ';
     }
+
+    public static function add($name, $endpoint)
+    {
+        if (!Config::$db) {
+            Config::db();
+        }
+
+        $stmt = Config::$db->prepare("INSERT INTO endpoints (name, endpoint) VALUES (?, ?)");
+        $stmt->bind_param('ss', $name, $endpoint);
+        return $stmt->execute();
+    }
 }

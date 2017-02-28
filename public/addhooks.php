@@ -1,28 +1,15 @@
 <?php
-// Initialize
-require 'include/configs.php';
-
-// Include Sessions
-include('sessions.php');
-
-// Gravatar
-include 'include/pipes/gravatar.php';
-include 'include/pipes/endpointRetrieve.php';
+require '../vendor/autoload.php';
+use uziiuzair\Pipeline;
 
 // Check is a session exists
-if(!isset($_SESSION['login_user'])){
-
-	header("location: error.php");
-
+if (!Pipeline\Sessions::get('user')) {
+    header("Location: /login.php");
 }
 
 $pointAdded = '';
 if(!empty($_POST['keyname'])) {
-
-	$endPointName 	= $_POST['keyname'];
-	$endPointURL 	= $_POST['keyvalue'];
-		
-	include 'include/pipes/addEndpoint.php';
+	Pipeline\Pipes\Endpoint::add($_POST['keyname'], $_POST['keyvalue']);
 }
 ?>
 
@@ -34,11 +21,10 @@ if(!empty($_POST['keyname'])) {
 	
 		<meta charset="utf-8">
 	
-		<title><?php echo SITE_NAME; ?> | Auth Keys</title>
-		
-		<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+		<title><?= Pipeline\Config::SITE_NAME; ?> | Auth Keys</title>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+        <?= Pipeline\Templater::getStyles() ?>
+        <?= Pipeline\Templater::getScripts() ?>
 
 		<script>
 			$(document).ready(function(){
@@ -79,7 +65,7 @@ if(!empty($_POST['keyname'])) {
 			
 					<li>
 						<a href="#">
-							<p>Hey, <?php echo $login_session; ?>!</p>
+							<p>Hey, <?= Pipeline\Sessions::get('user')->name ?>!</p>
 						</a>
 
 						<ul>
@@ -91,7 +77,11 @@ if(!empty($_POST['keyname'])) {
 					
 					</li>
 
-					<li><img src="<?php echo $gravatar; ?>" class="gravatar" alt="<?php echo $login_session; ?>"></li>
+					<li>
+                        <img src="<?= Pipeline\Pipes\Gravatar::get(Pipeline\Sessions::get('user')->email) ?>"
+                             class="gravatar"
+                             alt="<?= Pipeline\Sessions::get('user')->name ?>">
+                    </li>
 			
 				</ul>
 			
@@ -99,22 +89,12 @@ if(!empty($_POST['keyname'])) {
 
 		</div>
 
-		<div class="sidebar">
-			<nav>
-				<ul>
-					<li><a href="dashboard.php"><i class="fa fa-user"></i><span>Dashboard</span></a></li>
-					<li><a href="webhooks.php"><i class="fa fa-user"></i><span>Web Hooks</span></a></li>
-					<li><a href="addhooks.php"><i class="fa fa-user"></i><span>End Points</span></a></li>
-					<li><a href="authkeys.php"><i class="fa fa-user"></i><span>Auth Key</span></a></li>
-					<li><a href="settings.php"><i class="fa fa-user"></i><span>Pipeline Settings</span></a></li>
-				</ul>
-			</nav>
-		</div>
+        <?= Pipeline\Templater::sideBar() ?>
 
 		<div class="container">
 
 			<header>
-				<h1>End Points</h1> <p><a id="addKey" href="#">add end point</a></p>
+				<h1>End Points</h1> <p><a id="addKey" href="#">Add Endpoint</a></p>
 			</header>
 			
 			<div class="blockContainer">
@@ -133,7 +113,7 @@ if(!empty($_POST['keyname'])) {
 							
 								<li><input type="text" id="keyname" name="keyname" placeholder="Hook Name"></li>
 							
-								<li><input type="text" id="keyvalue" name="keyvalue" value="<?php echo PIPES_URL; ?>calls.php?c="></li>
+								<li><input type="text" id="keyvalue" name="keyvalue" value="<?= Pipeline\Config::PIPES_URL ?>calls.php?c="></li>
 							
 								<li><button>Add Endpoint</button></li>
 							
