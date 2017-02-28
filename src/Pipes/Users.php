@@ -17,6 +17,29 @@ class Users
         return $query->fetch_all(MYSQLI_ASSOC);
     }
 
+    public static function getUser($username)
+    {
+        if (!Config::$db) {
+            Config::db();
+        }
+
+        $user = new \stdClass();
+
+        $stmt = Config::$db->prepare("SELECT id, username, email, fullname, admin FROM users WHERE username = ?");
+        $stmt->bind_param('s', $username);
+        $stmt->bind_result(
+            $user->id,
+            $user->username,
+            $user->email,
+            $user->name,
+            $user->admin
+        );
+        $stmt->execute();
+        $stmt->fetch();
+
+        return $user;
+    }
+
     public static function generateDashEntity($auth, $authInf = false)
     {
         return '
@@ -37,6 +60,17 @@ class Users
 
         $stmt = Config::$db->prepare("INSERT INTO auth (authname, authKey) VALUES (?, ?)");
         $stmt->bind_param('ss', $name, $key);
+        return $stmt->execute();
+    }
+
+    public static function setPassword($username, $password)
+    {
+        if (!Config::$db) {
+            Config::db();
+        }
+
+        $stmt = Config::$db->prepare("UPDATE users SET password = ? WHERE username = ?");
+        $stmt->bind_param('ss', $password, $username);
         return $stmt->execute();
     }
 }

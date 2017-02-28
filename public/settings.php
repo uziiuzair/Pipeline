@@ -18,7 +18,8 @@ if (!Pipeline\Sessions::get('user')) {
 
     <title><?= Pipeline\Config::SITE_NAME ?> | Pipeline Settings</title>
 
-    <link href="assets/css/style.css?2" rel="stylesheet" type="text/css">
+    <?= Pipeline\Templater::getStyles() ?>
+    <?= Pipeline\Templater::getScripts() ?>
 
 </head>
 

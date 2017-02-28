@@ -4,7 +4,7 @@ use uziiuzair\Pipeline;
 
 // Check is a session exists
 if (!Pipeline\Sessions::get('user')) {
-    header("Location: /login.php");
+    header("Location: /");
 }
 ?>
 
