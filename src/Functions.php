@@ -2,13 +2,25 @@
 
 namespace uziiuzair\Pipeline;
 
+/**
+ * Class Functions
+ * @package uziiuzair\Pipeline
+ */
 class Functions
 {
+    /**
+     * @return string
+     */
     public static function generateApi()
     {
         return sha1(uniqid(mt_rand()));
     }
 
+    /**
+     * @param $username
+     * @param $password
+     * @return bool
+     */
     public static function login($username, $password)
     {
         // To protect MySQLi injection for security purpose
