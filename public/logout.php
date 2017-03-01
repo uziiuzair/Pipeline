@@ -4,5 +4,5 @@ use uziiuzair\Pipeline;
 
 // Check is a session exists
 if (Pipeline\Sessions::destroy()) {
-    header("Location: ".Pipeline\Config::PIPES_URL."");
+    header("Location: ".Pipeline\Config::PIPES_PUBLIC."");
 }

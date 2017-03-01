@@ -113,14 +113,14 @@ if (!Pipeline\Sessions::get('user')) {
                      alt="<?= Pipeline\Sessions::get('user')->username ?>"/>
                 <p style="color:#adaeb0; font-size: 13px; margin-top: 10px;">
                     You can change your gravatar at <a style="color:#007eff;text-decoration: none;"
-                                                       href="https://gravatar.com">Gravatar.com</a>
+                                                       href="https://gravatar.com">Gravatar.com</a></p>
                 </p>
 
             </div>
 
-        </div>
+            <hr>
 
-        <hr>
+        </div>
 
         <?php if (Pipeline\Sessions::get('user')->admin == 1) { ?>
 
