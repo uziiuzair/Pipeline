@@ -111,7 +111,7 @@ if (!Pipeline\Sessions::get('user')) {
 
                 $i = 0;
                 foreach ($allAuths as $auth) {
-                    if ($i == 5) {
+                    if ($i == 5) { // Auth Keys on Dashboard limited to 5.
                         break;
                     }
                     echo Pipeline\Pipes\Auth::generateDashEntity($auth);

@@ -158,9 +158,10 @@ $apiKey = Pipeline\Functions::generateApi();
 
                 $allAuths = Pipeline\Pipes\Auth::getAuths();
 
+                $authRows = sizeof($allAuths);
                 $i = 0;
                 foreach ($allAuths as $auth) {
-                    if ($i == 5) {
+                    if ($i == $authRows) {
                         break;
                     }
                     echo Pipeline\Pipes\Auth::generateDashEntity($auth, true);
