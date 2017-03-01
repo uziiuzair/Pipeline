@@ -30,7 +30,7 @@ if (!Pipeline\Sessions::get('user')) {
     <div class="logo clearfix">
         <div class="icon">P</div>
         <div class="name">
-            <p>Pipelines</p>
+            <p><?= Pipeline\Config::SITE_NAME ?></p>
         </div>
     </div>
 
@@ -39,15 +39,11 @@ if (!Pipeline\Sessions::get('user')) {
         <ul class="clearfix">
 
             <li>
-                <a class="ico" href="#"><i class="fa fa-user"></i></a>
+                <a class="ico" href="https://github.com/uziiuzair/Pipeline/wiki"><i class="fa fa-question-circle"></i></a>
             </li>
 
             <li>
-                <a class="ico" href="#"><i class="fa fa-user"></i></a>
-            </li>
-
-            <li>
-                <a class="ico" href="#"><i class="fa fa-user"></i></a>
+                <a class="ico" href="https://github.com/uziiuzair/Pipeline"><i class="fa fa-github"></i></a>
             </li>
 
             <li>
@@ -57,8 +53,8 @@ if (!Pipeline\Sessions::get('user')) {
 
                 <ul>
 
-                    <li><a href="/accountSettings.php">Account Settings</a></li>
-                    <li><a href="/logout.php">Logout</a></li>
+                    <li><a href="<?= Pipeline\Config::PIPES_PUBLIC ?>accountSettings.php">Account Settings</a></li>
+                    <li><a href="<?= Pipeline\Config::PIPES_PUBLIC ?>logout.php">Logout</a></li>
 
                 </ul>
 
