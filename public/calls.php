@@ -13,9 +13,11 @@ $postData = file_get_contents("php://input");
 // Check whether the Type has been mentioned.
 if (isset($_GET['type']) && !empty($_GET['type'])) {
     $callType = $_GET['type'];
+} else {
+    $callType = 'other';
 }
 
-// Check whether the Call has been mentioned. If not, KILL THE SCRIPT
+// Check whether a Call has been mentioned. If not, KILL THE SCRIPT
 if (empty($theCall)) {
     die('This file only accepts POST data');
 }
