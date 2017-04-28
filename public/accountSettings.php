@@ -103,14 +103,14 @@ if (!empty($_POST['passwd'])) {
 
 
                     <label for="name">Full Name</label>
-                    <input type="text" name="fullname" id="name" value="<?= Pipeline\Sessions::get('user')->name ?>">
+                    <input type="text" name="fullname" id="name" value="<?= Pipeline\Sessions::get('user')->name ?>" disabled>
 
                     <label for="username">User Name</label>
                     <input type="text" name="username" id="username"
-                           value="<?= Pipeline\Sessions::get('user')->username ?>">
+                           value="<?= Pipeline\Sessions::get('user')->username ?>" disabled>
 
                     <label for="email">E-Mail</label>
-                    <input type="text" name="email" id="email" value="<?= Pipeline\Sessions::get('user')->email ?>">
+                    <input type="text" name="email" id="email" value="<?= Pipeline\Sessions::get('user')->email ?>" disabled>
 
                     <label for="">Gravatar</label>
                     <img src="<?= Pipeline\Pipes\Gravatar::get(Pipeline\Sessions::get('user')->email) ?>"
@@ -142,38 +142,6 @@ if (!empty($_POST['passwd'])) {
                 </div>
 
             </div>
-
-            <?php if (Pipeline\Sessions::get('user')->admin == 1) { ?>
-
-                <div class="block users">
-
-                    <header>
-                        <h2>Users</h2>
-                    </header>
-
-                    <div class="content">
-                        <ul class="userInformation clearfix">
-                            <li>ID</li>
-                            <li>Username</li>
-                            <li>Email</li>
-                            <li>Full Name</li>
-                        </ul>
-
-                        <?php
-
-                        $allUsers = Pipeline\Pipes\Users::getUsers();
-
-                        $i = 0;
-                        foreach ($allUsers as $user) {
-                            echo Pipeline\Pipes\Users::generateDashEntity($user, true);
-                        }
-
-                        ?>
-                    </div>
-
-                </div>
-
-            <?php } ?>
 
         </div>
 
