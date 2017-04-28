@@ -31,7 +31,7 @@ body {
 }
 
 a {
-	color: #007eff;
+	color: rgb(229, 64, 112);
 }
 
 
@@ -315,7 +315,7 @@ body.dashboard .container {
 		}
 
 			body.dashboard .container header p a {
-				color: #007eff;
+				color: rgb(229, 64, 112);
 				text-decoration: none;				
 			}
 

@@ -6,6 +6,10 @@ use uziiuzair\Pipeline;
 if (!Pipeline\Sessions::get('user')) {
     header("Location: /");
 }
+
+if (!empty($_POST['addingUser'])) {
+    Pipeline\Pipes\Users::addUser($_POST['userUsername'], $_POST['userPassword'], $_POST['userEmail'], $_POST['userFullName'], $_POST['isAdmin']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -128,26 +132,31 @@ if (!Pipeline\Sessions::get('user')) {
 
                 <div class="content">
 
-                    <ul class="userInformation add clearfix">
-                        <li>
-                            <input type="text" name="userFullName" placeholder="Full Name">
-                        </li>
-                        <li>
-                            <input type="text" name="userUsername" placeholder="Username">
-                        </li>
-                        <li>
-                            <input type="email" name="userEmail" placeholder="Email">
-                        </li>
-                        <li>
-                            <input type="password" name="userPassword" placeholder="Password">
-                        </li>
-                        <li>
-                            <input type="checkbox" name="isAdmin"><label for="isAdmin">Is Admin?</label>
-                        </li>
-                        <li>
-                            <button>Add User</button>
-                        </li>
-                    </ul>
+                    <form method="post" action="settings.php">
+
+                        <ul class="userInformation add clearfix">
+                            <li>
+                                <input type="text" name="userFullName" placeholder="Full Name">
+                            </li>
+                            <li>
+                                <input type="text" name="userUsername" placeholder="Username">
+                            </li>
+                            <li>
+                                <input type="email" name="userEmail" placeholder="Email">
+                            </li>
+                            <li>
+                                <input type="password" name="userPassword" placeholder="Password">
+                            </li>
+                            <li>
+                                <input type="checkbox" name="isAdmin"><label for="isAdmin">Is Admin?</label>
+                            </li>
+                            <li>
+                                <input type="hidden" name="addingUser" value="yes">
+                                <button>Add User</button>
+                            </li>
+                        </ul>
+
+                    </form>
 
                 </div>
             </div>

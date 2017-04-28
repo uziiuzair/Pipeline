@@ -69,18 +69,21 @@ class Users
     }
 
     /**
-     * @param string $name
-     * @param string $key
-     * @return bool
+     * @param string $username
+     * @param string $password
+     * @param string $email
+     * @param string $fulName
+     * @param string $admin
+     * @return something?
      */
-    public static function add($name, $key)
+    public static function addUser($username, $password, $email, $fullName, $admin = 0)
     {
         if (!Config::$db) {
             Config::db();
         }
 
-        $stmt = Config::$db->prepare("INSERT INTO auth (authname, authKey) VALUES (?, ?)");
-        $stmt->bind_param('ss', $name, $key);
+        $stmt = Config::$db->prepare("INSERT INTO users (username, password, email, fullname, admin) VALUES (?,?,?,?,?)");
+        $stmt->bind_param('ssssi', $username, $password, $email, $fullName, $admin);
         return $stmt->execute();
     }
 
