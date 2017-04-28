@@ -88,7 +88,27 @@ if (!Pipeline\Sessions::get('user')) {
             </header>
 
             <div class="content">
+                <ul class="webhooks clearfix">
+                    <li>Service Name</li>
+                    <li>Date Received</li>
+                </ul>
 
+                <?php 
+
+                    $allHooks = Pipeline\Webhooks::getHooks();
+
+                    $hookRows = sizeof($allHooks);
+
+                    $i = 0;
+                    foreach ($allHooks as $hook) {
+                        if ($i == $hookRows) {
+                            break;
+                        }
+                        echo Pipeline\Webhooks::generateDashEntity($hook, true);
+                        $i++;
+                    }
+
+                ?>
             </div>
 
         </div>

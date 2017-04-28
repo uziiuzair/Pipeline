@@ -9,15 +9,10 @@ namespace uziiuzair\Pipeline\Calls;
 class Others
 {
 
-	public function __contruct () {
-		switch ($callType) {
-			case 'test':
-				# code...
-				break;
-			default:
-				echo "Hello!";
-				break;
-		}	
+	public static function addHook() {
+
+		echo "Hello!";
+
 	}
 	
 }

@@ -32,6 +32,7 @@ body {
 
 a {
 	color: rgb(229, 64, 112);
+    text-decoration: none;
 }
 
 
