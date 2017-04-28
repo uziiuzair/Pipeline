@@ -8,12 +8,16 @@ namespace uziiuzair\Pipeline\Calls;
  */
 class Others
 {
-	switch ($callType) {
-		case 'test':
-			# code...
-			break;
-		case 'other':
-			# code...
-			break;
+
+	public function __contruct () {
+		switch ($callType) {
+			case 'test':
+				# code...
+				break;
+			default:
+				echo "Hello!";
+				break;
+		}	
 	}
+	
 }

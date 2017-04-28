@@ -7,12 +7,18 @@ if (isset($_POST['submit'])) {
         Pipeline\Config::db();
     }
 
-    Pipeline\Functions::login($_POST['username'], $_POST['password']);
+    if (empty($_POST['username']) || empty($_POST['password'])) {
+    
+        $error = '<span style="font-size:20px;">Username and Password cannot be empty</span>';
+    
+    } else {
+        Pipeline\Functions::login($_POST['username'], $_POST['password']);
+    }
 
     // Check is a session exists
     if (Pipeline\Sessions::get('user')) {
-        header("Location: dashboard.php");
+        header("Location: ".Pipeline\Config::PIPES_PUBLIC."dashboard.php");
     } else {
-        header("Location: /");
+        header("Location: ".Pipeline\Config::PIPES_PUBLIC);
     }
 }

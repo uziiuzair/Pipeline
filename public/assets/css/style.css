@@ -359,6 +359,25 @@ body.dashboard .container {
 			}
 
 
+				body.dashboard .container .block .content ul {
+					list-style: none;
+					border-bottom: 1px solid #2e3038;
+					padding: 10px 5px;
+					color: #fff;
+				}
+
+					body.dashboard .container .block .content ul li {
+						display: inline-block;
+					}
+
+						body.dashboard .container .block .content ul:hover {
+							background: #212228;
+						}
+
+						body.dashboard .container .block .content ul.webhooks li {
+							width: 33.33%;
+						} 
+
 body.dashboard .sidebar {
 	background-color: #24262d;
 	width: 300px;

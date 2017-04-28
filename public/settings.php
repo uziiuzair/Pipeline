@@ -8,7 +8,13 @@ if (!Pipeline\Sessions::get('user')) {
 }
 
 if (!empty($_POST['addingUser'])) {
-    Pipeline\Pipes\Users::addUser($_POST['userUsername'], $_POST['userPassword'], $_POST['userEmail'], $_POST['userFullName'], $_POST['isAdmin']);
+
+    // Checks if an Admin value has been specified
+    if (isset($_POST['isAdmin'])) {
+        // If so, Admin is set to 1!
+        $setAdmin = 1;
+    }
+    Pipeline\Pipes\Users::addUser($_POST['userUsername'], $_POST['userPassword'], $_POST['userEmail'], $_POST['userFullName'], $setAdmin);
 }
 ?>
 
@@ -148,7 +154,8 @@ if (!empty($_POST['addingUser'])) {
                                 <input type="password" name="userPassword" placeholder="Password">
                             </li>
                             <li>
-                                <input type="checkbox" name="isAdmin"><label for="isAdmin">Is Admin?</label>
+                                <input type="hidden" name="isAdmin" value="0">
+                                <input type="checkbox" name="isAdmin" value="1"><label for="isAdmin">Is Admin?</label>
                             </li>
                             <li>
                                 <input type="hidden" name="addingUser" value="yes">
