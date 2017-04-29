@@ -39,9 +39,6 @@ if (empty($theCall)) {
     die('This file only accepts POST data');
 }
 
-// Set Response Code to 201
-http_response_code(201);
-
 switch ($theCall) {
     case 'mailgun':
         new Pipeline\Calls\Mailgun;

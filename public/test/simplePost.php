@@ -1,7 +1,7 @@
 <?php 
 
 $data = array(
-    'userID'      => 'a7664093-502e-4d2b-bf30-25a2b26d6021',
+    'userID'      => 'a7664093-502e4d2b-bf30-25a2b26d6021',
     'itemKind'    => 0,
     'value'       => 1,
     'description' => 'Boa saudaÁ„o.',
