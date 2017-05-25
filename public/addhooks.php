@@ -161,6 +161,10 @@ if(!empty($_POST['keyname'])) {
 
 			</div>
 
+			<footer>
+				<p><?php echo date('Y'); ?> &copy; <?= Pipeline\Config::SITE_NAME; ?></p>
+			</footer>
+
 		</div>
 
 		<script>

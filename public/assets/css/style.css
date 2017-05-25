@@ -376,8 +376,18 @@ body.dashboard .container {
 						}
 
 						body.dashboard .container .block .content ul.webhooks li {
-							width: 33.33%;
+							width: 25%;
 						} 
+
+			footer {
+				width: 100%;
+				padding: 0 15px;
+			}
+
+				footer p {
+					color: #555;
+					font-size: 14px;
+				}
 
 body.dashboard .sidebar {
 	background-color: #24262d;
@@ -735,9 +745,16 @@ body.auth {
 
 			.dashBlocks ul li {
 				display: inline-block;
-				width: 49%;
 				margin: 0;
 			}
+
+				.dashBlocks ul li:nth-child(1) {
+					width: 35%;
+				}
+
+				.dashBlocks ul li:nth-child(2) {
+					width: 63%;
+				}
 
 				.dashBlocks ul li span {
 					color: #fff;
@@ -754,6 +771,7 @@ body.auth {
 					font-size: 14px;
 					font-family: 'Raleway', sans-serif;
 					font-weight: 100;
+					width: 100%;
 				}
 
 

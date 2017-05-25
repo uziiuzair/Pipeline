@@ -160,6 +160,18 @@ if (!Pipeline\Sessions::get('user')) {
             </div>
 
         </div>
+
+        <!-- Dashblock -->
+        <div style="clear:both;-" class="block dashBlock">
+            <header>
+                <h2>Dashblock</h2>
+            </header>
+            <div class="content"></div>
+        </div>
+
+        <footer>
+            <p><?php echo date('Y'); ?> &copy; <?= Pipeline\Config::SITE_NAME; ?></p>
+        </footer>
     </div>
 </div>
 </body>

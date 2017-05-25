@@ -170,6 +170,10 @@ $apiKey = Pipeline\Functions::generateApi();
 
         </div>
 
+        <footer>
+            <p><?php echo date('Y'); ?> &copy; <?= Pipeline\Config::SITE_NAME; ?></p>
+        </footer>
+
     </div>
 
 </div>

@@ -14,7 +14,7 @@ if (Pipeline\Sessions::get('user')) {
 <head>
     <title><?= Pipeline\Config::SITE_NAME ?></title>
 
-    <?= Pipeline\Templater::getStyles() ?>
+    <?= Pipeline\Templater::getStyles(); ?>
 </head>
 <body class="login">
     <div class="overlay">
@@ -31,7 +31,7 @@ if (Pipeline\Sessions::get('user')) {
                         <input id="password" name="password" placeholder="Password" type="password">
                         <i class="fa fa-lock"></i>
                     </div>
-                    <input <?= !empty($error) ? 'style="background: #b44343;"' : '' ?> name="submit" type="submit" value="Log in">
+                    <input <?php !empty($error) ? 'style="background: #b44343;"' : '' ?> name="submit" type="submit" value="Log in">
                 </form>
             </div>
         </div>

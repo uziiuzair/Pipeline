@@ -145,6 +145,10 @@ if (!empty($_POST['passwd'])) {
 
         </div>
 
+        <footer>
+            <p><?php echo date('Y'); ?> &copy; <?= Pipeline\Config::SITE_NAME; ?></p>
+        </footer>
+
     </div>
 
 </body>
