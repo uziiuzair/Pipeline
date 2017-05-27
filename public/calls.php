@@ -35,7 +35,7 @@ if (isset($_GET['type']) && !empty($_GET['type'])) {
 
 // Check whether a Call has been mentioned. If not, KILL THE SCRIPT
 if (empty($theCall)) {
-    http_response_code(400);
+    http_response_code(406);
     die('This file only accepts POST data');
 }
 
