@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1); // Remove this before going into productions
 require '../vendor/autoload.php';
 use uziiuzair\Pipeline;
 
