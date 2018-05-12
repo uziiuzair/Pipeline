@@ -13,8 +13,8 @@ class Config
     const SITE_NAME = 'Pipelines';
     const COMPANY_NAME = 'uziiuzair.com';
     const COMPANY_SITE = 'http://www.uziiuzair.com/';
-    const PIPES_URL = 'http://pipelines.dev/'; // MUST end with a forward slash http://www.example.com/
-    const PIPES_PUBLIC = 'http://pipelines.dev/public/'; // MUST end with a forward slash http://www.example.com/
+    const PIPES_URL = 'https://pipelines.dev:8890/'; // MUST end with a forward slash http://www.example.com/
+    const PIPES_PUBLIC = 'https://pipelines.dev:8890/'; // MUST end with a forward slash http://www.example.com/
 
     // Default Database Details
     const DB_HOST = 'localhost'; 
