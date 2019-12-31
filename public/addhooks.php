@@ -21,10 +21,10 @@ if(!empty($_POST['keyname'])) {
 	
 		<meta charset="utf-8">
 	
-		<title><?= Pipeline\Config::SITE_NAME; ?> | Auth Keys</title>
+		<title><?php Pipeline\Config::SiteName; ?> | Auth Keys</title>
 
-        <?= Pipeline\Templater::getStyles() ?>
-        <?= Pipeline\Templater::getScripts() ?>
+        <?php Pipeline\Templater::getStyles() ?>
+        <?php Pipeline\Templater::getScripts() ?>
 
 		<script>
 			$(document).ready(function(){
@@ -43,7 +43,7 @@ if(!empty($_POST['keyname'])) {
 			<div class="logo clearfix">
 				<div class="icon">P</div>
 				<div class="name">
-					<p><?= Pipeline\Config::SITE_NAME ?></p>
+					<p><?php Pipeline\Config::SiteName ?></p>
 				</div>
 			</div>
 
@@ -61,22 +61,22 @@ if(!empty($_POST['keyname'])) {
 			
 					<li>
 						<a href="#">
-							<p>Hey, <?= Pipeline\Sessions::get('user')->name ?>!</p>
+							<p>Hey, <?php Pipeline\Sessions::get('user')->name ?>!</p>
 						</a>
 
 		                <ul>
 
-		                    <li><a href="<?= Pipeline\Config::PIPES_PUBLIC ?>accountSettings.php">Account Settings</a></li>
-		                    <li><a href="<?= Pipeline\Config::PIPES_PUBLIC ?>logout.php">Logout</a></li>
+		                    <li><a href="<?php Pipeline\Config::PIPES_PUBLIC ?>accountSettings.php">Account Settings</a></li>
+		                    <li><a href="<?php Pipeline\Config::PIPES_PUBLIC ?>logout.php">Logout</a></li>
 
 		                </ul>
 					
 					</li>
 
 					<li>
-                        <img src="<?= Pipeline\Pipes\Gravatar::get(Pipeline\Sessions::get('user')->email) ?>"
+                        <img src="<?php Pipeline\Pipes\Gravatar::get(Pipeline\Sessions::get('user')->email) ?>"
                              class="gravatar"
-                             alt="<?= Pipeline\Sessions::get('user')->name ?>">
+                             alt="<?php Pipeline\Sessions::get('user')->name ?>">
                     </li>
 			
 				</ul>
@@ -85,7 +85,7 @@ if(!empty($_POST['keyname'])) {
 
 		</div>
 
-        <?= Pipeline\Templater::sideBar() ?>
+        <?php Pipeline\Templater::sideBar() ?>
 
 		<div class="container">
 
@@ -109,7 +109,7 @@ if(!empty($_POST['keyname'])) {
 							
 								<li><input type="text" id="keyname" name="keyname" placeholder="Hook Name"></li>
 							
-								<li><input type="text" id="keyvalue" name="keyvalue" value="<?= Pipeline\Config::PIPES_URL ?>calls.php?c="></li>
+								<li><input type="text" id="keyvalue" name="keyvalue" value="<?php Pipeline\Config::PipelinesUrl ?>calls.php?c="></li>
 							
 								<li><button>Add Endpoint</button></li>
 							
@@ -162,7 +162,7 @@ if(!empty($_POST['keyname'])) {
 			</div>
 
 			<footer>
-				<p><?php echo date('Y'); ?> &copy; <?= Pipeline\Config::SITE_NAME; ?></p>
+				<p><?php echo date('Y'); ?> &copy; <?php Pipeline\Config::SiteName; ?></p>
 			</footer>
 
 		</div>
@@ -170,7 +170,7 @@ if(!empty($_POST['keyname'])) {
 		<script>
 			$(document).ready(function() {
 				$('#keyname').keyup(function(e){
-					var value = '<?= Pipeline\Config::PIPES_URL ?>calls.php?c=' + $(this).val();
+					var value = '<?php Pipeline\Config::PipelinesUrl ?>calls.php?c=' + $(this).val();
 					$('#keyvalue').val(value);
 				});
 			});

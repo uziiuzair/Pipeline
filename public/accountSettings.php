@@ -26,10 +26,10 @@ if (!empty($_POST['passwd'])) {
 
     <meta charset="utf-8">
 
-    <title><?= Pipeline\Config::SITE_NAME ?> | Account Settings</title>
+    <title><?php Pipeline\Config::SiteName ?> | Account Settings</title>
 
-    <?= Pipeline\Templater::getStyles() ?>
-    <?= Pipeline\Templater::getScripts() ?>
+    <?php Pipeline\Templater::getStyles() ?>
+    <?php Pipeline\Templater::getScripts() ?>
 
 </head>
 
@@ -40,7 +40,7 @@ if (!empty($_POST['passwd'])) {
         <div class="logo clearfix">
             <div class="icon">P</div>
             <div class="name">
-                <p><?= Pipeline\Config::SITE_NAME ?></p>
+                <p><?php Pipeline\Config::SiteName ?></p>
             </div>
         </div>
 
@@ -58,22 +58,22 @@ if (!empty($_POST['passwd'])) {
 
                 <li>
                     <a href="#">
-                        <p>Hey, <?= Pipeline\Sessions::get('user')->name ?>!</p>
+                        <p>Hey, <?php Pipeline\Sessions::get('user')->name ?>!</p>
                     </a>
 
                     <ul>
 
-                        <li><a href="<?= Pipeline\Config::PIPES_PUBLIC ?>accountSettings.php">Account Settings</a></li>
-                        <li><a href="<?= Pipeline\Config::PIPES_PUBLIC ?>logout.php">Logout</a></li>
+                        <li><a href="<?php Pipeline\Config::PIPES_PUBLIC ?>accountSettings.php">Account Settings</a></li>
+                        <li><a href="<?php Pipeline\Config::PIPES_PUBLIC ?>logout.php">Logout</a></li>
 
                     </ul>
 
                 </li>
 
                 <li>
-                    <img src="<?= Pipeline\Pipes\Gravatar::get(Pipeline\Sessions::get('user')->email) ?>"
+                    <img src="<?php Pipeline\Pipes\Gravatar::get(Pipeline\Sessions::get('user')->email) ?>"
                          class="gravatar"
-                         alt="<?= Pipeline\Sessions::get('user')->name ?>">
+                         alt="<?php Pipeline\Sessions::get('user')->name ?>">
                 </li>
 
             </ul>
@@ -82,7 +82,7 @@ if (!empty($_POST['passwd'])) {
 
     </div>
 
-    <?= Pipeline\Templater::sideBar() ?>
+    <?php Pipeline\Templater::sideBar() ?>
 
     <div class="container">
 
@@ -103,19 +103,19 @@ if (!empty($_POST['passwd'])) {
 
 
                     <label for="name">Full Name</label>
-                    <input type="text" name="fullname" id="name" value="<?= Pipeline\Sessions::get('user')->name ?>" disabled>
+                    <input type="text" name="fullname" id="name" value="<?php Pipeline\Sessions::get('user')->name ?>" disabled>
 
                     <label for="username">User Name</label>
                     <input type="text" name="username" id="username"
-                           value="<?= Pipeline\Sessions::get('user')->username ?>" disabled>
+                           value="<?php Pipeline\Sessions::get('user')->username ?>" disabled>
 
                     <label for="email">E-Mail</label>
-                    <input type="text" name="email" id="email" value="<?= Pipeline\Sessions::get('user')->email ?>" disabled>
+                    <input type="text" name="email" id="email" value="<?php Pipeline\Sessions::get('user')->email ?>" disabled>
 
                     <label for="">Gravatar</label>
-                    <img src="<?= Pipeline\Pipes\Gravatar::get(Pipeline\Sessions::get('user')->email) ?>"
+                    <img src="<?php Pipeline\Pipes\Gravatar::get(Pipeline\Sessions::get('user')->email) ?>"
                          class="gravatar"
-                         alt="<?= Pipeline\Sessions::get('user')->username ?>"/>
+                         alt="<?php Pipeline\Sessions::get('user')->username ?>"/>
                     <p style="color:#adaeb0; font-size: 13px; margin-top: 10px;">
                         You can change your gravatar at <a style="color:#007eff;text-decoration: none;"
                                                            href="https://gravatar.com">Gravatar.com</a></p>
@@ -146,7 +146,7 @@ if (!empty($_POST['passwd'])) {
         </div>
 
         <footer>
-            <p><?php echo date('Y'); ?> &copy; <?= Pipeline\Config::SITE_NAME; ?></p>
+            <p><?php echo date('Y'); ?> &copy; <?php Pipeline\Config::SiteName; ?></p>
         </footer>
 
     </div>
